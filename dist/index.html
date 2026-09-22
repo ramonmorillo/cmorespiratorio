@@ -1,1 +1,81 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="/cmorespiratorio/"><title>SIAF-CMO Respiratorio</title><link rel="stylesheet" href="src/styles.css"></head><body><header class="hero"><h1>SIAF-CMO Respiratorio</h1><p>Sistema inteligente de atención farmacéutica para estratificar, priorizar y documentar pacientes con patologías respiratorias.</p><p class="notice">La preestratificación es un analizador local de reglas, sin IA generativa ni envío de datos. No introduzca nombres, NHC, DNI, fechas completas, dirección, teléfono ni identificadores.</p></header><main><section class="status"><div><span id="score">0/59</span><small>Puntuación</small></div><div><span id="priority">P3</span><small>Prioridad final</small></div><div><span id="provisional">Provisional</span><small>Estado</small></div><div><span id="auto">Sin prioridad automática</span><small>Excepciones</small></div></section><section class="panel"><h2>Identificación pseudonimizada</h2><label for="pseudo">Identificador pseudonimizado del paciente</label><input id="pseudo" placeholder="Código pseudónimo"><h3>Identificación profesional</h3><p>Datos profesionales para identificar el centro y el responsable de la valoración.</p><label for="hospital">Hospital o centro sanitario</label><input id="hospital" placeholder="Hospital o centro sanitario" aria-describedby="validation"><label for="pharmacist">Farmacéutico responsable</label><input id="pharmacist" placeholder="Farmacéutico responsable" aria-describedby="validation"><p id="validation" class="error-text" aria-live="assertive"></p><h3>Patologías respiratorias</h3><div id="pathologies" class="checks"></div></section><div id="variables"></div><section class="panel"><h2>Modificación clínica manual</h2><p>Orientada preferentemente a elevar intensidad asistencial. Si se disminuye una Prioridad 1 automática, documente justificación reforzada. El algoritmo original nunca se oculta.</p><select id="overridePriority"><option value="">Sin modificación</option><option value="P1">Prioridad 1</option><option value="P2">Prioridad 2</option><option value="P3">Prioridad 3</option></select><input id="overrideMotive" placeholder="Motivo"><textarea id="overrideJustification" placeholder="Justificación obligatoria"></textarea></section><section class="panel"><h2>Detalle y actuaciones</h2><table><thead><tr><th>Variable</th><th>Respuesta</th><th>Puntos</th></tr></thead><tbody id="detail"></tbody></table><div id="actions"></div></section><section class="panel"><h2>Preestratificación automática desde texto</h2><p>Local, determinista, auditable, sin fetch/XMLHttpRequest, sin claves API y sin almacenamiento del texto pegado. Confirme individualmente cada propuesta.</p><textarea id="clinicalText" placeholder="Pegue texto clínico sin identificadores"></textarea><button type="button" id="extract">Analizar localmente</button><div id="extractResults"></div></section><section class="panel"><h2>Finalización</h2><button type="button" id="finish" class="primary">Finalizar estratificación</button><div id="pendingDialog" class="dialog" role="dialog" aria-modal="true" tabindex="-1" hidden><h3>Variables clínicas pendientes</h3><p>Existen <span id="pendingCount"></span> variables clínicas pendientes de valoración.</p><ul id="pendingList"></ul><button type="button" id="backToForm">Volver al formulario</button><button type="button" id="finishProvisional">Finalizar como resultado provisional</button></div><div id="finalResult" aria-live="polite" hidden></div></section><section class="panel"><h2>Gestión local e informes</h2><button type="button" id="save">Guardar local</button><button type="button" id="exportJson">Exportar JSON</button><button type="button" id="exportCsv">Exportar CSV</button><button type="button" id="summary">Descargar resumen clínico</button><button type="button" id="print">Imprimir informe</button><input id="import" type="file" accept="application/json"><button type="button" id="clear">Borrado completo</button><ul id="saved"></ul></section><section class="panel warning"><h2>Aviso profesional</h2><p>Herramienta de apoyo profesional, no diagnóstica, no prescriptiva, no sustitutiva del juicio clínico, no producto sanitario certificado y pendiente de validación antes de su implantación asistencial. Uso local conforme a RGPD y LOPDGDD.</p></section><div id="live" class="sr-only" aria-live="polite"></div></main><footer>Creada por Ramón Morillo Verdugo en julio de 2026. Modelo procedente de la adaptación del Modelo CMO al paciente con patologías respiratorias.</footer><script type="module" src="src/app.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <base href="/cmorespiratorio/">
+  <title>SIAF-CMO Respiratorio</title>
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div><span class="eyebrow">Modelo CMO</span><h1>CMO Respiratorio</h1><p>Evaluación farmacéutica estructurada y validada por el profesional.</p></div>
+    <div class="privacy-pill">Análisis local · datos seudonimizados</div>
+  </header>
+
+  <nav class="stepper" aria-label="Etapas de la evaluación">
+    <ol>
+      <li><button type="button" data-go="1"><span>1</span>Inicio</button></li>
+      <li><button type="button" data-go="2"><span>2</span>Historia clínica</button></li>
+      <li><button type="button" data-go="3"><span>3</span>Revisión</button></li>
+      <li><button type="button" data-go="4"><span>4</span>Estratificación</button></li>
+      <li><button type="button" data-go="5"><span>5</span>Necesidades</button></li>
+      <li><button type="button" data-go="6"><span>6</span>Intervenciones</button></li>
+      <li><button type="button" data-go="7"><span>7</span>Informe</button></li>
+    </ol>
+  </nav>
+
+  <main>
+    <section class="stage active" data-stage="1">
+      <div class="stage-heading"><span>Paso 1 de 7</span><h2>Iniciar una evaluación</h2><p>Identifique el contexto profesional y elija cómo cumplimentar la historia clínica.</p></div>
+      <div class="panel identity-grid">
+        <label>Hospital o centro sanitario<input id="hospital" placeholder="Hospital o centro sanitario" aria-describedby="validation"></label>
+        <label>Farmacéutico/a responsable<input id="pharmacist" placeholder="Nombre del profesional" aria-describedby="validation"></label>
+        <label>Identificador seudonimizado <small>Opcional</small><input id="pseudo" placeholder="Código interno sin datos identificativos"></label>
+        <p id="validation" class="error-text full" aria-live="assertive"></p>
+      </div>
+      <h3 class="choice-title">¿Cómo desea iniciar la evaluación?</h3>
+      <div class="entry-options">
+        <article class="entry-card"><span class="card-icon" aria-hidden="true">✎</span><h3>Estratificación manual</h3><p>Complete las variables del modelo a partir de información clínica validada.</p><button type="button" id="startManual" class="primary">Comenzar manualmente</button></article>
+        <article class="entry-card"><span class="card-icon" aria-hidden="true">≡</span><h3>Análisis asistido del texto clínico</h3><p>Detecte propuestas mediante el extractor local actual y confirme cada dato antes de incorporarlo.</p><button type="button" id="startAssisted" class="primary">Analizar texto clínico</button></article>
+      </div>
+      <aside id="assistantPanel" class="panel assistant-panel" hidden>
+        <h3>Análisis asistido</h3>
+        <p class="notice">Pegue únicamente texto previamente seudonimizado. La herramienta ayuda a cumplimentar: no decide ni valida datos clínicos.</p>
+        <label for="clinicalText">Texto clínico seudonimizado</label><textarea id="clinicalText" placeholder="Pegue aquí el texto clínico sin nombres, NHC, DNI, fechas completas, dirección ni teléfono"></textarea>
+        <button type="button" id="extract">Analizar localmente</button>
+        <div id="extractSummary" class="extract-summary" hidden></div><div id="extractResults"></div>
+        <div class="stage-actions"><button type="button" id="continueAssisted" class="primary" hidden>Continuar a historia clínica</button></div>
+      </aside>
+    </section>
+
+    <section class="stage" data-stage="2">
+      <div class="stage-heading"><span>Paso 2 de 7</span><h2>Historia clínica</h2><p>Revise y complete todos los datos. Las propuestas del análisis solo aparecen aquí tras su confirmación.</p></div>
+      <section class="panel"><h3>Patologías respiratorias</h3><div id="pathologies" class="checks"></div></section>
+      <div id="variables"></div>
+      <div class="stage-actions"><button type="button" data-back="1" class="secondary">Volver</button><button type="button" data-next="3" class="primary">Revisar datos</button></div>
+    </section>
+
+    <section class="stage" data-stage="3">
+      <div class="stage-heading"><span>Paso 3 de 7</span><h2>Revisión</h2><p>Compruebe la información antes de ejecutar el motor clínico determinista.</p></div>
+      <section class="status"><div><span id="reviewCompleted">0</span><small>Variables completadas</small></div><div><span id="reviewPending">0</span><small>Pendientes</small></div><div><span id="reviewPathology">No indicada</span><small>Patología principal</small></div></section>
+      <section class="panel table-wrap"><table><thead><tr><th>Variable</th><th>Respuesta</th><th>Puntos</th></tr></thead><tbody id="detail"></tbody></table></section>
+      <div class="stage-actions"><button type="button" data-back="2" class="secondary">Editar historia</button><button type="button" data-next="4" class="primary">Continuar a estratificación</button></div>
+    </section>
+
+    <section class="stage" data-stage="4">
+      <div class="stage-heading"><span>Paso 4 de 7</span><h2>Estratificación CMO</h2><p>Resultado del mismo motor clínico utilizado para cualquier modalidad de entrada.</p></div>
+      <section class="status"><div><span id="score">0/59</span><small>Puntuación</small></div><div><span id="priority">P3</span><small>Prioridad final</small></div><div><span id="provisional">Provisional</span><small>Estado</small></div><div><span id="auto">Sin prioridad automática</span><small>Excepciones</small></div></section>
+      <section class="panel"><h3>Modificación clínica manual</h3><p class="help">El algoritmo original nunca se oculta. Si disminuye una Prioridad 1 automática, documente una justificación reforzada.</p><div class="form-row"><label>Prioridad<select id="overridePriority"><option value="">Sin modificación</option><option value="P1">Prioridad 1</option><option value="P2">Prioridad 2</option><option value="P3">Prioridad 3</option></select></label><label>Motivo<input id="overrideMotive" placeholder="Motivo"></label></div><label>Justificación<textarea id="overrideJustification" placeholder="Justificación obligatoria"></textarea></label></section>
+      <section class="panel"><h3>Finalizar estratificación</h3><button type="button" id="finish" class="primary">Validar y finalizar</button><div id="pendingDialog" class="dialog" role="dialog" aria-modal="true" tabindex="-1" hidden><h3>Variables clínicas pendientes</h3><p>Existen <span id="pendingCount"></span> variables pendientes.</p><ul id="pendingList"></ul><button type="button" id="backToForm">Volver al formulario</button><button type="button" id="finishProvisional">Finalizar como provisional</button></div></section>
+      <div class="stage-actions"><button type="button" data-back="3" class="secondary">Volver a revisión</button><button type="button" data-next="5" class="primary">Ver necesidades</button></div>
+    </section>
+
+    <section class="stage" data-stage="5"><div class="stage-heading"><span>Paso 5 de 7</span><h2>Necesidades detectadas</h2><p>Representación estructurada derivada del resultado CMO, preparada para futuras ayudas de decisión.</p></div><div id="needs"></div><div class="stage-actions"><button type="button" data-back="4" class="secondary">Volver</button><button type="button" data-next="6" class="primary">Revisar intervenciones</button></div></section>
+    <section class="stage" data-stage="6"><div class="stage-heading"><span>Paso 6 de 7</span><h2>Intervenciones</h2><p>Actuaciones vigentes asociadas a la prioridad; no se han añadido reglas nuevas.</p></div><section id="actions" class="panel"></section><div class="stage-actions"><button type="button" data-back="5" class="secondary">Volver</button><button type="button" data-next="7" class="primary">Preparar informe</button></div></section>
+    <section class="stage" data-stage="7"><div class="stage-heading"><span>Paso 7 de 7</span><h2>Informe y gestión</h2><p>Revise el resultado, guarde el caso o exporte la documentación.</p></div><div id="finalResult" aria-live="polite"></div><section class="panel"><h3>Gestión local e informes</h3><div class="button-group"><button type="button" id="save">Guardar local</button><button type="button" id="exportJson">Exportar JSON</button><button type="button" id="exportCsv">Exportar CSV</button><button type="button" id="summary">Descargar resumen clínico</button><button type="button" id="print">Imprimir informe</button><label class="file-button">Importar JSON<input id="import" type="file" accept="application/json"></label><button type="button" id="clear" class="danger">Borrado completo</button></div><ul id="saved"></ul></section><section class="panel warning"><h3>Aviso profesional</h3><p>Herramienta de apoyo profesional, no diagnóstica, no prescriptiva, no sustitutiva del juicio clínico, no producto sanitario certificado y pendiente de validación asistencial.</p></section><div class="stage-actions"><button type="button" data-back="6" class="secondary">Volver</button></div></section>
+    <div id="live" class="sr-only" aria-live="polite"></div>
+  </main>
+  <footer>Creada por Ramón Morillo Verdugo en julio de 2026. Modelo procedente de la adaptación del Modelo CMO al paciente con patologías respiratorias.</footer>
+  <script type="module" src="src/app.js"></script>
+</body></html>
