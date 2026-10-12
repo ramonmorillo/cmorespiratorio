@@ -20,3 +20,5 @@
 Casos ficticios compartidos: `tests/fixtures/cases.js` (documentados en `CASOS_CLINICOS_PRUEBA.md`).
 
 Verificación manual pendiente antes de cada entrega: GitHub Pages, navegador corporativo, pegado en HCE real, PDF en visor institucional (ver `CHECKLIST_ENTREGA.md`).
+
+Integración continua: `.github/workflows/ci.yml` ejecuta en cada PR y en `main` las pruebas unitarias, el build, la comprobación de que `dist/` está sincronizado con `src/` y las E2E en Chromium; el PDF y las capturas E2E quedan como artefacto descargable (14 días).
