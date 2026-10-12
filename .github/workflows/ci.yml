@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Pruebas, build y E2E
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Pruebas unitarias
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: dist/ sincronizado con src/
+        run: |
+          if ! git diff --exit-code -- dist; then
+            echo "::error::dist/ no coincide con src/. Ejecute npm run build y confirme los cambios."
+            exit 1
+          fi
+          if [ -n "$(git status --porcelain -- dist)" ]; then
+            git status --porcelain -- dist
+            echo "::error::dist/ contiene archivos nuevos sin confirmar. Ejecute npm run build y confirme los cambios."
+            exit 1
+          fi
+
+      - name: Instalar Playwright (Chromium)
+        run: |
+          npm install --no-save --no-package-lock playwright@1.56.1
+          npx playwright install --with-deps chromium
+
+      - name: Pruebas E2E
+        env:
+          E2E_OUT: e2e-output
+        run: mkdir -p e2e-output && npm run test:e2e
+
+      - name: Guardar PDF y capturas E2E
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-output
+          path: e2e-output
+          if-no-files-found: ignore
+          retention-days: 14

@@ -1,0 +1,175 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Length 7590 >>
+stream
+0.030 0.420 0.440 rg 0.00 749.89 595.28 92.00 re f
+BT /F2 16 Tf 1.000 1.000 1.000 rg 50.00 793.89 Td (Atenci\363n farmac\351utica respiratoria \227 Modelo CMO) Tj ET
+BT /F1 9 Tf 1.000 1.000 1.000 rg 50.00 775.89 Td (Informe de atenci\363n farmac\351utica \267 SIAF-CMO Respiratorio v1.1.0-rc1) Tj ET
+BT /F2 9.5 Tf 0.360 0.410 0.500 rg 50.00 725.06 Td (Fecha de evaluaci\363n) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 200.00 725.06 Td (12/10/2026 16:55) Tj ET
+BT /F2 9.5 Tf 0.360 0.410 0.500 rg 50.00 712.24 Td (Identificador del paciente) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 200.00 712.24 Td (RESP-P1-001 \(seudonimizado\)) Tj ET
+BT /F2 9.5 Tf 0.360 0.410 0.500 rg 50.00 699.41 Td (Farmac\351utico/a responsable) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 200.00 699.41 Td (Farmac\351utico/a de pruebas) Tj ET
+BT /F2 9.5 Tf 0.360 0.410 0.500 rg 50.00 686.59 Td (Hospital o centro) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 200.00 686.59 Td (Hospital Ficticio de Pruebas) Tj ET
+BT /F2 9.5 Tf 0.360 0.410 0.500 rg 50.00 673.76 Td (Estado de la valoraci\363n) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 200.00 673.76 Td (Definitiva) Tj ET
+0.900 0.970 0.960 rg 50.00 621.16 495.28 44.60 re f
+BT /F2 12.5 Tf 0.030 0.420 0.440 rg 62.00 641.46 Td (Resultado de estratificaci\363n: Prioridad 1) Tj ET
+BT /F1 9.5 Tf 0.030 0.420 0.440 rg 62.00 628.16 Td (Puntuaci\363n total 37/59 \267 Prioridad calculada por el modelo: Prioridad 1) Tj ET
+BT /F2 10.5 Tf 0.030 0.420 0.440 rg 50.00 596.16 Td (SITUACI\323N CL\315NICA RELEVANTE) Tj ET
+0.030 0.420 0.440 RG 0.6 w 50 591.16 m 545.28 591.16 l S
+BT /F2 9.5 Tf 0.360 0.410 0.500 rg 50.00 576.34 Td (Patolog\355a principal) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 200.00 576.34 Td (EPOC \(incluye d\351ficit alfa-1-antitripsina, bronquitis y enfisema\)) Tj ET
+BT /F2 9.5 Tf 0.360 0.410 0.500 rg 50.00 563.51 Td (Otras patolog\355as) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 200.00 563.51 Td (Bronquiectasias no asociadas a fibrosis qu\355stica) Tj ET
+BT /F2 9.5 Tf 0.360 0.410 0.500 rg 50.00 550.69 Td (Edad) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 200.00 550.69 Td (>65 a\361os \(72\) \(2 p\)) Tj ET
+BT /F2 9.5 Tf 0.360 0.410 0.500 rg 50.00 537.86 Td (IMC) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 200.00 537.86 Td (Obesidad \(IMC>=30; 31,5\) \(3 p\)) Tj ET
+BT /F2 10.5 Tf 0.030 0.420 0.440 rg 50.00 512.86 Td (VALORACI\323N CMO: VARIABLES DETERMINANTES) Tj ET
+0.030 0.420 0.440 RG 0.6 w 50 507.86 m 545.28 507.86 l S
+BT /F1 9 Tf 0.360 0.410 0.500 rg 50.00 493.71 Td (Puntuaci\363n por dimensiones: Demogr\341ficas 5/5 \267 Cl\355nicas 12/14 \267 Tratamiento 13/21 \267 Sociosanitarias 4/16 \267 Utilizaci\363n de) Tj ET
+BT /F1 9 Tf 0.360 0.410 0.500 rg 50.00 481.56 Td (servicios 3/3.) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 54.00 466.74 Td (\225) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 59.97 466.74 Td (Comorbilidad no respiratoria con medicaci\363n \(excluye psiqui\341trica\) \(3 p\) \227 Cl\355nicas) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 54.00 451.91 Td (\225) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 59.97 451.91 Td (Des\363rdenes mentales o conductuales no transitorios con medicaci\363n espec\355fica \(3 p\) \227 Cl\355nicas) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 54.00 437.09 Td (\225) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 59.97 437.09 Td (Deterioro cognitivo-sensorial \(4 p\) \227 Cl\355nicas) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 54.00 422.26 Td (\225) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 59.97 422.26 Td (Gravedad de la afectaci\363n o necesidad de oxigenoterapia \(2 p\) \227 Cl\355nicas) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 54.00 407.44 Td (\225) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 59.97 407.44 Td (Tabaquismo activo \(4 p\) \227 Sociosanitarias) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 54.00 392.61 Td (\225) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 59.97 392.61 Td (>=2 ingresos y/o >=2 visitas a urgencias por descompensaci\363n respiratoria en el \372ltimo a\361o \(3 p\) \227 Utilizaci\363n de) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 59.97 379.79 Td (servicios) Tj ET
+BT /F2 10.5 Tf 0.030 0.420 0.440 rg 50.00 352.79 Td (NECESIDADES FARMACOTERAP\311UTICAS IDENTIFICADAS) Tj ET
+0.030 0.420 0.440 RG 0.6 w 50 347.79 m 545.28 347.79 l S
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 54.00 332.96 Td (\225) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 59.97 332.96 Td (Falta de adherencia a cualquier medicamento: S\355 \(4 p\)) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 54.00 318.14 Td (\225) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 59.97 318.14 Td (Medicamentos que pueden empeorar la patolog\355a respiratoria: S\355 \(4 p\)) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 54.00 303.31 Td (\225) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 59.97 303.31 Td (Objetivos farmacoterap\351uticos: No alcanzados / inicio reciente \(2 p\)) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 54.00 288.49 Td (\225) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 59.97 288.49 Td (Polimedicaci\363n: seis o m\341s principios activos: S\355 \(3 p\)) Tj ET
+BT /F2 10.5 Tf 0.030 0.420 0.440 rg 50.00 261.49 Td (INTERVENCIONES FARMAC\311UTICAS) Tj ET
+0.030 0.420 0.440 RG 0.6 w 50 256.49 m 545.28 256.49 l S
+BT /F2 9.5 Tf 0.090 0.130 0.200 rg 50.00 241.66 Td (Realizadas en esta consulta) Tj ET
+BT /F1 9 Tf 0.030 0.420 0.440 rg 54.00 228.51 Td (Seguimiento farmacoterap\351utico) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 60.00 216.36 Td (\225) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 216.36 Td (Control y seguimiento de adherencia y uso adecuado de dispositivos con registros y cuestionarios validados.) Tj ET
+BT /F1 9 Tf 0.030 0.420 0.440 rg 54.00 202.21 Td (Formaci\363n y educaci\363n al paciente) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 60.00 190.06 Td (\225) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 190.06 Td (Promoci\363n de la adherencia.) Tj ET
+BT /F2 9.5 Tf 0.090 0.130 0.200 rg 50.00 175.24 Td (Planificadas / pendientes) Tj ET
+BT /F1 9 Tf 0.030 0.420 0.440 rg 54.00 162.09 Td (Coordinaci\363n asistencial) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 60.00 149.94 Td (\225) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 149.94 Td (Coordinaci\363n intrahospitalaria especializada \(Neumolog\355a, Psiquiatr\355a y/o Servicios Sociales\).) Tj ET
+BT /F2 9.5 Tf 0.090 0.130 0.200 rg 50.00 135.11 Td (Recomendadas por el modelo para Prioridad 1 \(no registradas como realizadas\)) Tj ET
+BT /F1 9 Tf 0.030 0.420 0.440 rg 54.00 121.96 Td (Seguimiento farmacoterap\351utico) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 60.00 109.81 Td (\225) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 109.81 Td (Estratificaci\363n o reestratificaci\363n seg\372n criterios ordinarios o situaciones cl\355nicas extraordinarias.) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 60.00 95.66 Td (\225) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 95.66 Td (Revisi\363n, validaci\363n y conciliaci\363n de medicaci\363n concomitante e interacciones, ofreciendo alternativas al m\351dico.) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 60.00 81.51 Td (\225) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 81.51 Td (Valoraci\363n multidimensional y an\341lisis de objetivos farmacoterap\351uticos \(OFT\).) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 60.00 67.36 Td (\225) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 67.36 Td (Monitorizaci\363n y decisiones multidisciplinares en funci\363n de PROs y PREMs.) Tj ET
+0.850 0.890 0.930 RG 0.6 w 50 46.00 m 545.28 46.00 l S
+BT /F1 7.5 Tf 0.360 0.410 0.500 rg 50.00 32.00 Td (SIAF-CMO Respiratorio v1.1.0-rc1 \267 Documento de apoyo; no sustituye el juicio cl\355nico) Tj ET
+BT /F1 7.5 Tf 0.360 0.410 0.500 rg 499.00 32.00 Td (P\341gina 1 de 2) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 4729 >>
+stream
+BT /F1 8 Tf 0.360 0.410 0.500 rg 50.00 807.89 Td (Atenci\363n farmac\351utica respiratoria \227 Modelo CMO \267 Paciente RESP-P1-001 \267 12/10/2026 16:55) Tj ET
+0.850 0.890 0.930 RG 0.6 w 50 801.89 m 545.28 801.89 l S
+BT /F1 9 Tf 0.090 0.130 0.200 rg 60.00 771.74 Td (\225) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 771.74 Td (Contacto adicional entre visitas mediante teleasistencia si el FH lo considera positivo.) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 60.00 757.59 Td (\225) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 757.59 Td (Establecimiento de OFT a corto plazo seg\372n patolog\355a respiratoria y criterio del FH.) Tj ET
+BT /F1 9 Tf 0.030 0.420 0.440 rg 54.00 743.44 Td (Formaci\363n y educaci\363n al paciente) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 60.00 731.29 Td (\225) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 731.29 Td (Identificaci\363n de no adherentes primarios/secundarios y entrevista motivacional con sistemas de fomento de) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 719.14 Td (adherencia.) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 60.00 704.99 Td (\225) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 704.99 Td (Fomento de paciente activo, informado y corresponsable.) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 60.00 690.84 Td (\225) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 690.84 Td (Informaci\363n sobre enfermedad, tratamiento, conservaci\363n, interacciones, reacciones adversas, h\341bitos saludables,) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 678.69 Td (higiene ambiental y vacunaci\363n \(gripe, neumococo, COVID, etc.\).) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 60.00 664.54 Td (\225) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 664.54 Td (Formaci\363n en manejo de dispositivos, inyectores/perfusi\363n, inhaladores, nebulizadores y ejercicios respiratorios.) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 60.00 650.39 Td (\225) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 650.39 Td (Recursos web/apps informativos, monitorizaci\363n, telefarmacia y dispensaci\363n domiciliaria; en P2/P1 tambi\351n a) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 638.24 Td (familiares/cuidadores.) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 60.00 624.09 Td (\225) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 624.09 Td (Material personalizado para paciente y/o familiares/cuidador en papel o digital.) Tj ET
+BT /F1 9 Tf 0.030 0.420 0.440 rg 54.00 609.94 Td (Coordinaci\363n asistencial) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 60.00 597.79 Td (\225) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 597.79 Td (Programas orientados a cumplir objetivos farmacoterap\351uticos.) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 60.00 583.64 Td (\225) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 583.64 Td (Coordinaci\363n de pr\363xima visita UPEFH con equipo multidisciplinar y agenda de dispensaciones.) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 60.00 569.49 Td (\225) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 569.49 Td (Sistemas personalizados de dosificaci\363n coordinados con Farmacia Comunitaria y Atenci\363n Primaria.) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 60.00 555.34 Td (\225) Tj ET
+BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 555.34 Td (Reuniones peri\363dicas del equipo asistencial sobre indicadores de eficacia y adherencia.) Tj ET
+BT /F2 10.5 Tf 0.030 0.420 0.440 rg 50.00 528.34 Td (PLAN DE ATENCI\323N Y SEGUIMIENTO) Tj ET
+0.030 0.420 0.440 RG 0.6 w 50 523.34 m 545.28 523.34 l S
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 54.00 508.52 Td (\225) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 59.97 508.52 Td (Recomendaci\363n: aplicar al inicio y ante cambios; valorar cada 3\2266 meses.) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 54.00 493.69 Td (\225) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 59.97 493.69 Td (Pr\363xima valoraci\363n prevista: 15/01/2027) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 54.00 478.87 Td (\225) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 59.97 478.87 Td (Observaciones: Revisar t\351cnica inhalatoria; derivaci\363n a deshabituaci\363n tab\341quica acordada con Neumolog\355a.) Tj ET
+1.000 0.970 0.890 rg 50.00 409.17 495.28 53.70 re f
+BT /F2 11.5 Tf 0.450 0.330 0.000 rg 62.00 439.97 Td (Aviso profesional) Tj ET
+BT /F1 8.5 Tf 0.450 0.330 0.000 rg 62.00 428.07 Td (Herramienta de apoyo profesional: no diagn\363stica, no prescriptiva, no sustitutiva del juicio cl\355nico, no producto sanitario) Tj ET
+BT /F1 8.5 Tf 0.450 0.330 0.000 rg 62.00 416.17 Td (certificado y pendiente de validaci\363n asistencial.) Tj ET
+0.850 0.890 0.930 RG 0.6 w 50 46.00 m 545.28 46.00 l S
+BT /F1 7.5 Tf 0.360 0.410 0.500 rg 50.00 32.00 Td (SIAF-CMO Respiratorio v1.1.0-rc1 \267 Documento de apoyo; no sustituye el juicio cl\355nico) Tj ET
+BT /F1 7.5 Tf 0.360 0.410 0.500 rg 499.00 32.00 Td (P\341gina 2 de 2) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Title (Informe de atencion farmaceutica respiratoria - Modelo CMO) /Producer (SIAF-CMO Respiratorio) >>
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000127 00000 n 
+0000000224 00000 n 
+0000000326 00000 n 
+0000007968 00000 n 
+0000008110 00000 n 
+0000012891 00000 n 
+0000013033 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R /Info 9 0 R >>
+startxref
+13156
+%%EOF

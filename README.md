@@ -14,3 +14,10 @@ Publicación GitHub Pages: configurar Pages desde la rama/artefacto que contenga
 ## Alcance
 
 Herramienta de apoyo profesional: no diagnóstica, no prescriptiva, no sustitutiva del juicio clínico, no producto sanitario certificado y pendiente de validación asistencial.
+
+## Novedades 1.1.0-rc1 (auditoría pre-entrega)
+
+- Informe PDF y «Copiar informe para historia clínica» desde el paso 7.
+- Registro del estado de cada intervención y plan de seguimiento.
+- Pruebas E2E: `npm run build && npm run test:e2e` (requiere Playwright/Chromium).
+- Guía de uso: `GUIA_RAPIDA_FARMACEUTICO.md`. Auditoría: `INFORME_AUDITORIA_PREENTREGA.md`.
