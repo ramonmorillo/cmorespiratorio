@@ -21,7 +21,8 @@ test('las dos entradas convergen en la misma etapa de historia clínica',()=>{
 
 test('el análisis requiere confirmación o descarte profesional',()=>{
   assert.match(html,/La herramienta ayuda a cumplimentar: no decide ni valida datos clínicos/);
-  assert.match(app,/Confirmar dato/);
+  assert.match(app,/data-review-accept/);
+  assert.match(app,/Confirmar propuestas explícitas revisadas/);
   assert.match(app,/Descartar/);
 });
 

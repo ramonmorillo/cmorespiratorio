@@ -1,1 +1,1 @@
-{"scripts":{"test":"node --test","build":"node scripts/build.js","test:e2e":"node --test tests/e2e/flow.e2e.mjs"},"devDependencies":{},"type":"module"}
+{"scripts":{"test":"node --test","build":"node scripts/build.js","test:e2e":"node --test tests/e2e/flow.e2e.mjs","eval:extractor":"node scripts/eval-extractor.js"},"devDependencies":{},"type":"module"}

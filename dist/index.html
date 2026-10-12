@@ -37,11 +37,11 @@
       <h3 class="choice-title">¿Cómo desea iniciar la evaluación?</h3>
       <div class="entry-options">
         <article class="entry-card"><span class="card-icon" aria-hidden="true">✎</span><h3>Estratificación manual</h3><p>Complete las variables del modelo a partir de información clínica validada.</p><button type="button" id="startManual" class="primary">Comenzar manualmente</button></article>
-        <article class="entry-card"><span class="card-icon" aria-hidden="true">≡</span><h3>Análisis asistido del texto clínico</h3><p>Detecte propuestas mediante el extractor local actual y confirme cada dato antes de incorporarlo.</p><button type="button" id="startAssisted" class="primary">Analizar texto clínico</button></article>
+        <article class="entry-card"><span class="card-icon" aria-hidden="true">≡</span><h3>Análisis asistido del texto clínico</h3><p>Detecte propuestas con el analizador local (sin conexión) y revíselas en una tabla antes de incorporarlas.</p><button type="button" id="startAssisted" class="primary">Analizar texto clínico</button></article>
       </div>
       <aside id="assistantPanel" class="panel assistant-panel" hidden>
         <h3>Análisis asistido</h3>
-        <p class="notice">Pegue únicamente texto previamente seudonimizado. La herramienta ayuda a cumplimentar: no decide ni valida datos clínicos.</p>
+        <p class="notice">Pegue únicamente texto previamente seudonimizado. La herramienta ayuda a cumplimentar: no decide ni valida datos clínicos. Ninguna propuesta se incorpora sin su confirmación; la ausencia de información nunca se interpreta como «No».</p>
         <label for="clinicalText">Texto clínico seudonimizado</label><textarea id="clinicalText" placeholder="Pegue aquí el texto clínico sin nombres, NHC, DNI, fechas completas, dirección ni teléfono"></textarea>
         <button type="button" id="extract">Analizar localmente</button>
         <div id="extractSummary" class="extract-summary" hidden></div><div id="extractResults"></div>
@@ -88,7 +88,7 @@
   </main>
   <footer class="site-footer">
     <p>Herramienta basada en la metodología <strong>CMO (Capacidad–Motivación–Oportunidad) MAPEX-SEFH</strong>. Modelo procedente de la publicación de la Sociedad Española de Farmacia Hospitalaria: <a href="https://www.sefh.es/mapex/images/modelo-CMO-al-paciente-con-patologias-respiratorias.pdf" target="_blank" rel="noopener noreferrer">Adaptación del Modelo de Atención Farmacéutica CMO al paciente con patologías respiratorias (PDF, SEFH)</a>.</p>
-    <p>Creada por Ramón Morillo Verdugo en julio de 2026. <strong>Versión <span id="appVersion">1.1.0</span>: nueva versión de octubre de 2026</strong> (auditoría pre-entrega, informe PDF y texto para historia clínica).</p>
+    <p>Creada por Ramón Morillo Verdugo en julio de 2026. <strong>Versión <span id="appVersion">1.2.0</span>: nueva versión de octubre de 2026</strong> (analizador de texto clínico v2.0 con tabla de revisión, informe PDF y texto para historia clínica).</p>
     <section class="legal-footer" aria-labelledby="legalTitle">
       <h2 id="legalTitle">Aviso legal</h2>
       <p><strong>Naturaleza.</strong> Herramienta de apoyo a la decisión para profesionales sanitarios. No es diagnóstica ni prescriptiva, no sustituye el juicio clínico y debe validarse por el centro antes de su implantación asistencial. <strong>No es un producto sanitario certificado</strong> conforme al Reglamento (UE) 2017/745 sobre los productos sanitarios. Su uso no exime al profesional de su responsabilidad clínica, deontológica y legal.</p>

@@ -31,3 +31,22 @@ Todos los pacientes son inventados. Definición ejecutable: `tests/fixtures/case
 | Variable cambiada tras finalizar | Informes bloqueados hasta revalidar | ✔ |
 | JSON importado con «si», variables inventadas o HTML | Pendientes / descartados | ✔ |
 | Texto «Varón de 70 años con EPOC. IMC: 31,5. Exfumador. Posible oxigenoterapia. Mala adherencia…» | Edad 70 y IMC 31,5 transferidos; tabaquismo = No; oxigenoterapia dudosa sin preselección; no adherencia = Sí | ✔ |
+
+## Casos A–J del analizador de texto (octubre de 2026)
+
+Textos clínicos ficticios con referencia manual de las 22 variables en `tests/fixtures/extractor-gold.js`; resultados en `docs/EVALUACION_EXTRACTOR.md` (`npm run eval:extractor`).
+
+| Caso | Contenido | Puntos (ref. / v2.0) | Prioridad (ref. / v2.0) |
+|---|---|---|---|
+| A | EPOC complejo, comorbilidades, polimedicación, tabaquismo, baja adherencia | 37 / 37 | P1 / P1 |
+| B | Asma grave controlada, buena adherencia, ausencia explícita de factores | 2 / 2 | P3 / P3 |
+| C | Fibrosis quística con IMC 17,6 y FEV1 38 % | 13 / 13 | P3 / P3 |
+| D | Información incompleta | 1 / 1 | P3 / P3 |
+| E | Negaciones y antecedentes familiares | 0 / 0 | P3 / P3 |
+| F | Datos contradictorios (edad, tabaquismo, adherencia) | 1 / 1 | P3 / P3 |
+| G | Gestante: prioridad automática | 0 / 0 | P1 / P1 |
+| H | Medicación potencialmente agravante (AINE, β-bloqueante no cardioselectivo) | 9 / 6 | P3 / P3 |
+| I | Abreviaturas y errores ortográficos | 22 / 22 | P2 / P2 |
+| J | Ingresos y urgencias en distintos periodos y causas | 3 / 3 | P3 / P3 |
+
+Los puntos de la columna v2.0 suponen que el profesional confirma todas las propuestas firmes; el caso H queda por debajo por un falso negativo conservador (comorbilidad no reconocida), no por una puntuación errónea.

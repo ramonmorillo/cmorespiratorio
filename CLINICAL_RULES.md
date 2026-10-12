@@ -15,3 +15,12 @@
 - La modificación manual de prioridad solo es efectiva con justificación ≥12 caracteres; la prioridad calculada se muestra siempre.
 - Con variables pendientes se informa de la puntuación y prioridad máximas alcanzables.
 - Umbrales a verificar en la fuente: desnutrición IMC <18,4 y edad >65 (ver P-1, P-2).
+
+## Analizador de texto clínico v2.0 (apoyo a la cumplimentación; no modifica el modelo)
+
+- El analizador solo **propone**; ninguna variable se incorpora sin confirmación profesional y la ausencia de mención nunca se interpreta como «No».
+- Umbrales usados para proponer (tomados de los criterios ya documentados en las ayudas del modelo): TAI <45; MPR <0,8; FVC <50 %; DLCO <30 %; FEV1 <40 % (FQ); caída de FVC ≥10 % o de DLCO ≥15 %; SNOT-22 >50; VAS >7; BSI >8; FACED >5; CAT >21; EQ-VAS <50; ≥6 principios activos; MRCI >11; ≥2 ingresos y/o ≥2 urgencias en el último año por causa respiratoria; cambios en los últimos 6 meses.
+- EPOC confirmada ⇒ propuesta «Sí» en naïve a terapia hospitalaria, según la nota del modelo.
+- Medicamentos agravantes: solo se propone si el fármaco figura en el anexo para la patología del paciente; β-bloqueantes cardioselectivos solo en RSCcPN.
+- Alto riesgo ISMP: subconjunto local de la lista MARC (2014) **pendiente de verificación** frente a la lista vigente.
+- Detalle por variable: `docs/EVALUACION_EXTRACTOR.md`, sección 2.

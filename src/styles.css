@@ -21,3 +21,15 @@ button:disabled{opacity:.45;cursor:not-allowed}
 .site-footer{text-align:left!important;max-width:1180px;font-size:.88rem;line-height:1.55}.site-footer p{margin:.4rem 0}.site-footer a{color:#076970;font-weight:700}
 .legal-footer{margin-top:1rem;padding:1rem 1.2rem;border-top:1px solid #d8e2f0;background:#fff;border-radius:14px;color:#3d4a60}.legal-footer h2{font-size:1rem;margin:0 0 .4rem;color:#172033}
 @media print{.site-footer{display:block!important;font-size:7.5pt}.site-footer a::after{content:" (" attr(href) ")";font-weight:400}}
+/* Análisis asistido: tabla de revisión profesional */
+.extract-summary{flex-wrap:wrap}.review-counters{display:flex;flex-wrap:wrap;gap:.4rem 1rem;font-size:.9rem}.review-counters b{color:#076970}
+.review-wrap{margin:1rem 0;border:1px solid #dde6ee;border-radius:12px}.review-table{font-size:.88rem}.review-table caption{text-align:left;font-weight:800;padding:.6rem .7rem;background:#f3f7fa;color:#172033}
+.review-table th,.review-table td{vertical-align:top;padding:.5rem .55rem}.review-table th[scope=row]{font-weight:700;min-width:150px}.review-table select{min-width:150px;margin:0;padding:.45rem}
+.review-table blockquote{margin:0;padding:.3rem .5rem;background:#f5f7fa;border-left:3px solid #8ba7ac;font-size:.82rem;max-width:280px}.review-table details{font-size:.8rem;margin-top:.25rem}
+.review-actions button{margin:.15rem;padding:.45rem .75rem;font-size:.85rem}.current-value,.rule{display:block;font-weight:400;color:#5b6880;font-size:.78rem;margin-top:.2rem}
+.status-badge{display:inline-block;padding:.15rem .5rem;border-radius:99px;font-weight:750;font-size:.78rem;border:1px solid transparent}
+.status-badge.st-yes{background:#e0f4e6;color:#11692f}.status-badge.st-no{background:#e8eef9;color:#2a4a85}.status-badge.st-review{background:#fff3cd;color:#7a5300}.status-badge.st-conflict{background:#fde2e4;color:#8b1a2b}.status-badge.st-none{background:#eef1f4;color:#5b6880}
+.review-row.st-none td,.review-row.st-none th{color:#68758a}.review-row.is-decided{background:#f7fbf8}.decision{font-weight:800}.decision-rejected{color:#8b2740}.decision-confirmed,.decision-edited{color:#11692f}.row-msg{display:block;color:#a00020;font-weight:700;font-size:.8rem}
+.bulk-confirm{padding:1rem;border:2px solid #087b83;border-radius:12px;background:#eef9f8;margin-top:1rem}
+@media(max-width:760px){.review-table thead{display:none}.review-table,.review-table tbody,.review-table tr,.review-table th,.review-table td{display:block;width:100%}.review-table tr{border-bottom:2px solid #dde6ee;padding:.4rem 0}.review-table td::before{content:attr(data-label);display:block;font-size:.72rem;font-weight:800;color:#68758a;text-transform:uppercase}.review-table blockquote{max-width:none}}
+@media(max-width:760px){.review-table caption{display:block;width:100%}}

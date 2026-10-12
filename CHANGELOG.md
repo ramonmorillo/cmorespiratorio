@@ -43,3 +43,13 @@
 - Faldón con enlace al documento fuente SEFH: https://www.sefh.es/mapex/images/modelo-CMO-al-paciente-con-patologias-respiratorias.pdf
 - Nuevo faldón de **aviso legal** (Reglamento (UE) 2017/745, RGPD, LOPDGDD, Ley 41/2002, propiedad intelectual y limitación de responsabilidad) y aviso legal completo en `LEGAL_NOTICE.md`.
 - El PDF y el texto para historia clínica citan la versión, su fecha y la fuente MAPEX-SEFH.
+
+## 1.2.0 — octubre de 2026 · Analizador de texto clínico v2.0
+
+- Reglas de extracción para las **22 variables** (antes 12), con umbrales cuantitativos del modelo (TAI, MPR, FVC, DLCO, FEV1, SNOT-22, VAS, BSI, FACED, CAT, EQ-VAS), periodo y causa en ingresos y urgencias, y catálogos locales versionados de medicamentos agravantes (anexo SEFH, por patología) y de alto riesgo (subconjunto MARC ISMP, pendiente de verificación).
+- Negación por cláusula (no se propaga a otras variables), antecedentes familiares «no atribuibles», incertidumbre y **detección de contradicciones** (sin propuesta).
+- Eliminada la etiqueta de «certeza» no validada.
+- Nueva **tabla de revisión** de las 22 variables por dimensión: confirmar, modificar o descartar cada fila; confirmación conjunta solo de propuestas explícitas tras una casilla de revisión; nunca sobrescribe respuestas previas; contadores de confirmadas, pendientes, descartadas y sin información.
+- Trazabilidad `provenance` en el caso (sin fragmentos de texto) e indicación en PDF y texto para historia clínica.
+- Sin cambios en variables, puntuaciones, umbrales ni prioridad automática.
+- Evaluación reproducible (`npm run eval:extractor`) con 10 casos sintéticos A–J: `docs/EVALUACION_EXTRACTOR.md`.
