@@ -214,27 +214,77 @@ test('pediátrico y modificación manual sin justificación', {skip}, async () =
   await s2.context.close();
 });
 
-test('análisis asistido: la edad e IMC detectados se transfieren y requieren confirmación', {skip}, async () => {
-  const {context, page, errors} = await open();
+test('análisis asistido: tabla de 22 variables, confirmación conjunta solo de propuestas explícitas', {skip}, async () => {
+  const {context, page, errors, external} = await open();
   await identity(page, 'RESP-ASIST-001');
   await page.click('#startAssisted');
-  await page.fill('#clinicalText', 'Varón de 70 años con EPOC. IMC: 31,5. Exfumador. Posible oxigenoterapia. Mala adherencia al tratamiento inhalado.');
+  await page.fill('#clinicalText', 'Varón de 70 años con EPOC. IMC: 31,5. Exfumador. Posible oxigenoterapia. Mala adherencia al tratamiento inhalado (TAI 38). Buena adherencia según el paciente. Antecedentes familiares de depresión.');
   await page.click('#extract');
   assert.equal(await page.inputValue('#clinicalText'), '', 'el texto pegado se elimina');
-  const proposals = page.locator('.proposal');
-  const n = await proposals.count();
-  for (let i = 0; i < n; i++) {
-    const box = proposals.nth(i);
-    if (await box.locator('[data-proposal-value]').inputValue() === '') { await box.locator('[data-reject]').click(); continue; }
-    await box.locator('[data-accept]').click();
-  }
+  assert.equal(await page.locator('.review-row').count(), 22, 'las 22 variables, agrupadas por dimensión');
+  assert.equal(await page.locator('.review-table caption').count(), 5);
+  assert.match(await page.textContent('#extractSummary'), /no la exactitud clínica/);
+  const status = id => page.locator(`[data-row="${id}"] .status-badge`).textContent();
+  assert.match(await status('severityOxygen'), /Requiere revisión/);
+  assert.match(await status('nonAdherence'), /Contradictorio/);
+  assert.match(await status('mentalDisorder'), /familiar/);
+  assert.match(await status('socioeconomic'), /Sin información/);
+  assert.equal(await page.inputValue('[data-review-value="severityOxygen"]'), '', 'las dudosas no se preseleccionan');
+  // La confirmación conjunta exige una acción explícita.
+  assert.equal(await page.isDisabled('#bulkConfirm'), true);
+  await page.check('#bulkReviewed');
+  assert.match(await page.textContent('#bulkConfirm'), /Confirmar 4 propuestas/); // edad, IMC, tabaquismo (No) y naïve (regla EPOC)
+  await page.click('#bulkConfirm');
+  assert.match(await page.textContent('#extractSummary'), /Confirmadas 4/);
   await page.click('#continueAssisted');
   assert.equal(await page.inputValue('#age'), '70');
   assert.equal(await page.inputValue('#bmi'), '31.5');
   assert.equal(await page.inputValue('[data-var="activeSmoking"]'), 'no');
-  assert.equal(await page.inputValue('[data-var="nonAdherence"]'), 'yes');
-  assert.equal(await page.inputValue('[data-var="severityOxygen"]'), 'pending', 'mención dudosa no se incorpora');
-  assert.match(await page.textContent('#sub-demographic'), /5\/5/);
+  assert.equal(await page.inputValue('[data-var="severityOxygen"]'), 'pending', 'dudosa no incorporada');
+  assert.equal(await page.inputValue('[data-var="nonAdherence"]'), 'pending', 'contradictoria no incorporada');
+  assert.equal(await page.inputValue('[data-var="mentalDisorder"]'), 'pending', 'familiar no incorporada');
+  assert.equal(await page.inputValue('[data-var="socioeconomic"]'), 'pending', 'la ausencia de información no se convierte en "No"');
+  await page.setViewportSize({width: 390, height: 844});
+  await page.click('[data-go="1"]');
+  await page.screenshot({path: path.join(OUT, 'revision-movil.png'), fullPage: true});
+  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+  assert.ok(overflow <= 1, `tabla sin desplazamiento horizontal en móvil (${overflow}px)`);
+  assert.deepEqual(errors, []);
+  assert.deepEqual(external, []);
+  await context.close();
+});
+
+test('análisis asistido: no sobrescribe respuestas profesionales; descartar no modifica; edición y trazabilidad', {skip}, async () => {
+  const {context, page, errors} = await open();
+  await identity(page, 'RESP-ASIST-002');
+  await page.click('#startManual');
+  await page.selectOption('[data-var="activeSmoking"]', 'yes'); // respuesta profesional previa
+  await page.click('[data-go="1"]');
+  await page.click('#startAssisted');
+  await page.fill('#clinicalText', 'Mujer de 55 años con asma grave. Exfumadora. Oxigenoterapia domiciliaria. Calidad de vida muy afectada.');
+  await page.click('#extract');
+  assert.match(await page.textContent('[data-row="activeSmoking"]'), /En formulario: Sí/);
+  await page.click('[data-review-reject="qualityOfLife"]'); // descartada antes de la confirmación conjunta
+  await page.check('#bulkReviewed');
+  await page.click('#bulkConfirm');
+  assert.equal(await page.inputValue('[data-var="activeSmoking"]'), 'yes', 'la confirmación conjunta no sobrescribe respuestas previas');
+  assert.equal(await page.inputValue('[data-var="qualityOfLife"]'), 'pending', 'la propuesta descartada no se incorpora');
+  assert.equal(await page.inputValue('[data-var="severityOxygen"]'), 'yes', 'propuesta explícita confirmada en bloque');
+  // Edición individual: el profesional cambia la propuesta y confirma.
+  await page.selectOption('[data-review-value="occupationalExposure"]', 'no');
+  await page.click('[data-review-accept="occupationalExposure"]');
+  assert.equal(await page.inputValue('[data-var="occupationalExposure"]'), 'no');
+  assert.match(await page.textContent('[data-row="occupationalExposure"]'), /Confirmada \(modificada\)/);
+  // Descartar una propuesta no confirmada no modifica el formulario.
+  await page.click('[data-review-reject="pregnancyPuerperium"]');
+  assert.equal(await page.inputValue('[data-var="pregnancyPuerperium"]'), 'pending');
+  // Trazabilidad en el informe tras finalizar como provisional.
+  await page.click('[data-go="4"]');
+  await page.click('#finish');
+  await page.click('#finishProvisional');
+  await page.click('[data-go="7"]');
+  assert.match(await page.inputValue('#hceText'), /incorporada\(s\) desde el análisis asistido/);
+  assert.match(await page.inputValue('#hceText'), /Tabaquismo activo \(4 p\)/, 'se conserva la respuesta profesional previa');
   assert.deepEqual(errors, []);
   await context.close();
 });

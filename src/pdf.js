@@ -153,6 +153,7 @@ export function reportToPdf(r) {
   L.paragraph(`Puntuación por dimensiones: ${s.subtotals.map(x => `${x.short} ${x.points}/${x.max}`).join(' · ')}.`, {size: 9, color: COLORS.muted});
   if (r.contextFactors.length) r.contextFactors.forEach(f => L.paragraph(`${f.label}${f.points ? ` (${f.points} p)` : ''} — ${f.dimensionLabel}`, {hanging: '•', indent: 4}));
   else if (!r.pharmacotherapeuticNeeds.length) L.paragraph('Ninguna variable puntuada.', {color: COLORS.muted});
+  if (s.assistedCount) L.paragraph(`Origen de los datos: ${s.assistedCount} variable(s) incorporada(s) desde el análisis asistido del texto, confirmada(s) por el profesional.`, {size: 9, color: COLORS.muted});
   if (s.override) {
     L.paragraph(`Modificación profesional a ${s.override.priority}.${s.override.motive ? ` Motivo: ${s.override.motive}.` : ''} Justificación: ${s.override.justification}`, {size: 9.5});
   }

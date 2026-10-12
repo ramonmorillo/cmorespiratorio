@@ -83,7 +83,8 @@ export function buildReport(form, result) {
         motive: result.override.motive || '',
         justification: result.override.justification || ''
       } : null,
-      pending: pendingLabels
+      pending: pendingLabels,
+      assistedCount: Object.keys(form.provenance || {}).filter(id => result.details.some(d => d.variable.id === id && !d.pending)).length
     },
     contextFactors: factors.filter(f => f.dimension !== 'treatment'),
     pharmacotherapeuticNeeds: factors.filter(f => f.dimension === 'treatment'),
@@ -133,6 +134,7 @@ export function reportToText(r) {
     `- Puntuación total: ${s.total}/${s.max} (${s.subtotals.map(x => `${x.short} ${x.points}/${x.max}`).join('; ')}).`,
     `- Prioridad calculada por el modelo: ${s.calculatedPriority}.`,
     s.automaticCauses.length && `- Criterio de prioridad automática: ${s.automaticCauses.join('; ')}.`,
+    s.assistedCount && `- Origen de los datos: ${s.assistedCount} variable(s) incorporada(s) desde el análisis asistido del texto, confirmada(s) por el profesional.`,
     s.override && `- Modificación por criterio profesional a ${s.override.priority}${s.override.motive ? `. Motivo: ${s.override.motive}` : ''}. Justificación: ${s.override.justification}`
   ]);
   lines.push('', `RESULTADO DE ESTRATIFICACIÓN: ${s.finalPriority.toUpperCase()}${r.statusLabel === 'Provisional' ? ' (PROVISIONAL)' : ''}`);

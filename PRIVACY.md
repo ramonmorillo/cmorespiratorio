@@ -18,3 +18,5 @@
 - **Ficheros exportados (PDF, TXT, CSV, JSON):** quedan en la carpeta de descargas del equipo y su custodia corresponde al profesional.
 - **Equipos compartidos:** cualquier persona con acceso al mismo perfil de navegador puede ver los casos guardados. Use identificadores seudonimizados, no escriba datos identificativos en «Observaciones» y borre los casos al terminar.
 - Este documento describe el funcionamiento técnico; no sustituye la evaluación de protección de datos ni la autorización del centro.
+
+- **Análisis asistido (v2.0):** el texto pegado se procesa en memoria y se borra del campo; la tabla de revisión con las evidencias existe solo en pantalla hasta iniciar otra evaluación. En el caso solo se guarda la trazabilidad mínima de las variables confirmadas (variable, decisión, regla aplicada y fecha), **sin fragmentos del texto**.

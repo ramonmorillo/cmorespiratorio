@@ -22,3 +22,5 @@ Casos ficticios compartidos: `tests/fixtures/cases.js` (documentados en `CASOS_C
 Verificación manual pendiente antes de cada entrega: GitHub Pages, navegador corporativo, pegado en HCE real, PDF en visor institucional (ver `CHECKLIST_ENTREGA.md`).
 
 Integración continua: `.github/workflows/ci.yml` ejecuta en cada PR y en `main` las pruebas unitarias, el build, la comprobación de que `dist/` está sincronizado con `src/` y las E2E en Chromium; el PDF y las capturas E2E quedan como artefacto descargable (14 días).
+
+Analizador de texto (v2.0): `tests/extractor.test.js` (cobertura, negaciones, contradicciones, catálogos, integración) y evaluación frente a la referencia A–J (`tests/extractor-eval.js`, `npm run eval:extractor`). La versión 1.1.0 del extractor se conserva congelada en `tests/fixtures/extractor-v1.1.0.js` solo como referencia comparativa.

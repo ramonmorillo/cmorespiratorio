@@ -224,5 +224,5 @@ test('extractor: la incertidumbre no se propaga entre frases', () => {
   assert.equal(r.find(x => x.variableId === 'age').status, 'detectado');
   assert.equal(r.find(x => x.variableId === 'severityOxygen').status, 'dudoso');
   assert.equal(prestratify('Madre con asma. Fumador activo.').find(x => x.variableId === 'activeSmoking').proposal, 'yes');
-  assert.equal(prestratify('Madre fumadora.').find(x => x.variableId === 'activeSmoking').status, 'dudoso');
+  assert.equal(prestratify('Madre fumadora.').find(x => x.variableId === 'activeSmoking').status, 'no_atribuible'); // v2.0: antecedente familiar, no atribuible al paciente
 });

@@ -1,4 +1,4 @@
-export const VERSION='1.1.0';
+export const VERSION='1.2.0';
 export const VERSION_DATE='octubre de 2026';
 export const SOURCE_URL='https://www.sefh.es/mapex/images/modelo-CMO-al-paciente-con-patologias-respiratorias.pdf';
 export const DIMENSIONS={demographic:{label:'Variables demográficas',max:5},clinical:{label:'Variables clínicas',max:14},treatment:{label:'Variables relacionadas con el tratamiento',max:21},social:{label:'Variables sociosanitarias',max:16},utilization:{label:'Utilización de servicios sanitarios',max:3}};
@@ -47,10 +47,11 @@ const cleanText=(value,max=200)=>typeof value==='string'?value.trim().slice(0,ma
 export function normalizeCase(form={}){const values={}; for(const [id,value] of Object.entries(form.values||{})){const v=VARIABLES.find(x=>x.id===id); if(v&&value!=='pending'&&validateClinicalValue(v,value))values[id]=value;}
  const known=new Set(PATHOLOGIES.map(p=>p[0])); const pathologies=[...new Set((form.pathologies||[]).filter(p=>known.has(p)))]; const mainPathology=pathologies.includes(form.mainPathology)?form.mainPathology:(pathologies[0]||'');
  const interventions={}; for(const [id,status] of Object.entries(form.interventions||{})){if(INTERVENTION_STATUSES[status]&&/^(sft|edu|coord)-\d+$/.test(id))interventions[id]=status;}
+ const provenance={}; for(const [id,p] of Object.entries(form.provenance||{})){if(VARIABLES.some(v=>v.id===id)&&p&&typeof p==='object'&&['confirmed','edited'].includes(p.decision)&&values[id])provenance[id]={source:'extractor',decision:p.decision,rule:cleanText(p.rule,200),at:cleanText(p.at,30)};}
  const plan={nextReview:/^\d{4}-\d{2}-\d{2}$/.test(form.plan?.nextReview||'')?form.plan.nextReview:'',notes:cleanText(form.plan?.notes,2000)};
  const override=form.override&&typeof form.override==='object'?{priority:PRIORITY_RANK[form.override.priority]?form.override.priority:'',motive:cleanText(form.override.motive),justification:cleanText(form.override.justification,2000),...(form.override.date?{date:String(form.override.date)}:{})}:null;
  const scalar=v=>typeof v==='number'?(Number.isFinite(v)?v:''):typeof v==='string'?v.trim().slice(0,10):'';
- return {...form,values,pathologies,mainPathology,interventions,plan,override,age:scalar(form.age),bmi:scalar(form.bmi),adultClinic:form.adultClinic!==false,pseudoId:cleanText(form.pseudoId,60),hospital:cleanText(form.hospital??form.center),pharmacist:cleanText(form.pharmacist),status:['draft','completed','provisional'].includes(form.status)?form.status:'draft',completedAt:typeof form.completedAt==='string'?form.completedAt:null,schemaVersion:form.schemaVersion||1};}
+ return {...form,values,pathologies,mainPathology,interventions,provenance,plan,override,age:scalar(form.age),bmi:scalar(form.bmi),adultClinic:form.adultClinic!==false,pseudoId:cleanText(form.pseudoId,60),hospital:cleanText(form.hospital??form.center),pharmacist:cleanText(form.pharmacist),status:['draft','completed','provisional'].includes(form.status)?form.status:'draft',completedAt:typeof form.completedAt==='string'?form.completedAt:null,schemaVersion:form.schemaVersion||1};}
 export function finalizeCase(form,status='completed'){return {...normalizeCase(form),status,completedAt:new Date().toISOString(),outdated:false};}
 export function applyOverride(result,override){if(!override?.priority)return result; if(!overrideIsValid(override))throw new Error('La modificación clínica requiere justificación explícita.'); return {...result,finalPriority:override.priority,override:{...override,date:override.date||new Date().toISOString()}};}
 export function exportCase(form){return JSON.stringify({schema:'siaf-cmo-respiratorio-v1',version:VERSION,form:normalizeCase(form)},null,2)}
