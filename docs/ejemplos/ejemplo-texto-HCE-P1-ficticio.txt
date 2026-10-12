@@ -1,0 +1,60 @@
+ATENCIÓN FARMACÉUTICA RESPIRATORIA — MODELO CMO
+Fecha de evaluación: 12/10/2026 16:55
+Identificador del paciente (seudonimizado): RESP-P1-001
+Valoración: Definitiva
+
+SITUACIÓN CLÍNICA Y FARMACOTERAPÉUTICA RELEVANTE
+- Patología respiratoria principal: EPOC (incluye déficit alfa-1-antitripsina, bronquitis y enfisema).
+- Otras patologías respiratorias: Bronquiectasias no asociadas a fibrosis quística.
+- Edad: >65 años (72) (2 p).
+- IMC: Obesidad (IMC>=30; 31,5) (3 p).
+- Comorbilidad no respiratoria con medicación (excluye psiquiátrica) (3 p).
+- Desórdenes mentales o conductuales no transitorios con medicación específica (3 p).
+- Deterioro cognitivo-sensorial (4 p).
+- Gravedad de la afectación o necesidad de oxigenoterapia (2 p).
+- Tabaquismo activo (4 p).
+- >=2 ingresos y/o >=2 visitas a urgencias por descompensación respiratoria en el último año (3 p).
+
+VALORACIÓN CMO (ESTRATIFICACIÓN)
+- Puntuación total: 37/59 (Demográficas 5/5; Clínicas 12/14; Tratamiento 13/21; Sociosanitarias 4/16; Utilización de servicios 3/3).
+- Prioridad calculada por el modelo: Prioridad 1.
+
+RESULTADO DE ESTRATIFICACIÓN: PRIORIDAD 1
+
+NECESIDADES FARMACOTERAPÉUTICAS IDENTIFICADAS
+- Falta de adherencia a cualquier medicamento: Sí (4 p).
+- Medicamentos que pueden empeorar la patología respiratoria: Sí (4 p).
+- Objetivos farmacoterapéuticos: No alcanzados / inicio reciente (2 p).
+- Polimedicación: seis o más principios activos: Sí (3 p).
+
+INTERVENCIONES FARMACÉUTICAS
+Realizadas en esta consulta:
+  - Seguimiento farmacoterapéutico: Control y seguimiento de adherencia y uso adecuado de dispositivos con registros y cuestionarios validados.
+  - Formación y educación al paciente: Promoción de la adherencia.
+Planificadas / pendientes:
+  - Coordinación asistencial: Coordinación intrahospitalaria especializada (Neumología, Psiquiatría y/o Servicios Sociales).
+Recomendadas por el modelo para Prioridad 1 (no registradas como realizadas):
+  - Seguimiento farmacoterapéutico: Estratificación o reestratificación según criterios ordinarios o situaciones clínicas extraordinarias.
+  - Seguimiento farmacoterapéutico: Revisión, validación y conciliación de medicación concomitante e interacciones, ofreciendo alternativas al médico.
+  - Seguimiento farmacoterapéutico: Valoración multidimensional y análisis de objetivos farmacoterapéuticos (OFT).
+  - Seguimiento farmacoterapéutico: Monitorización y decisiones multidisciplinares en función de PROs y PREMs.
+  - Seguimiento farmacoterapéutico: Contacto adicional entre visitas mediante teleasistencia si el FH lo considera positivo.
+  - Seguimiento farmacoterapéutico: Establecimiento de OFT a corto plazo según patología respiratoria y criterio del FH.
+  - Formación y educación al paciente: Identificación de no adherentes primarios/secundarios y entrevista motivacional con sistemas de fomento de adherencia.
+  - Formación y educación al paciente: Fomento de paciente activo, informado y corresponsable.
+  - Formación y educación al paciente: Información sobre enfermedad, tratamiento, conservación, interacciones, reacciones adversas, hábitos saludables, higiene ambiental y vacunación (gripe, neumococo, COVID, etc.).
+  - Formación y educación al paciente: Formación en manejo de dispositivos, inyectores/perfusión, inhaladores, nebulizadores y ejercicios respiratorios.
+  - Formación y educación al paciente: Recursos web/apps informativos, monitorización, telefarmacia y dispensación domiciliaria; en P2/P1 también a familiares/cuidadores.
+  - Formación y educación al paciente: Material personalizado para paciente y/o familiares/cuidador en papel o digital.
+  - Coordinación asistencial: Programas orientados a cumplir objetivos farmacoterapéuticos.
+  - Coordinación asistencial: Coordinación de próxima visita UPEFH con equipo multidisciplinar y agenda de dispensaciones.
+  - Coordinación asistencial: Sistemas personalizados de dosificación coordinados con Farmacia Comunitaria y Atención Primaria.
+  - Coordinación asistencial: Reuniones periódicas del equipo asistencial sobre indicadores de eficacia y adherencia.
+
+PLAN DE ATENCIÓN Y SEGUIMIENTO
+- Recomendación: aplicar al inicio y ante cambios; valorar cada 3–6 meses.
+- Próxima valoración prevista: 15/01/2027.
+- Observaciones: Revisar técnica inhalatoria; derivación a deshabituación tabáquica acordada con Neumología.
+
+Profesional responsable: Farmacéutico/a de pruebas — Hospital Ficticio de Pruebas
+Generado con SIAF-CMO Respiratorio v1.1.0-rc1. Herramienta de apoyo profesional: no diagnóstica, no prescriptiva, no sustitutiva del juicio clínico, no producto sanitario certificado y pendiente de validación asistencial.
