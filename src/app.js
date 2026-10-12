@@ -1,4 +1,4 @@
-import {VARIABLES,DIMENSIONS,PATHOLOGIES,PERIODICITY,INTERVENTION_STATUSES,calculate,actionCatalog,exportCase,importCase,toCSV,normalizeCase,finalizeCase,validateClinicalValue,overrideIsValid,parseMeasure,AGE_RANGE,BMI_RANGE} from './clinical.js';
+import {VARIABLES,DIMENSIONS,PATHOLOGIES,PERIODICITY,INTERVENTION_STATUSES,calculate,actionCatalog,exportCase,importCase,toCSV,normalizeCase,finalizeCase,validateClinicalValue,overrideIsValid,parseMeasure,AGE_RANGE,BMI_RANGE,VERSION,SOURCE_URL} from './clinical.js';
 import {prestratify} from './extractor.js';
 import {allCases,saveCase,deleteCase,clearCases,saveDraft,loadDraft,clearDraft} from './storage.js';
 import {buildWorkflowState} from './workflow.js';
@@ -127,7 +127,7 @@ function renderReport(r){
   <h4>Intervenciones farmacéuticas</h4>${i.done.length?`<p><strong>Realizadas</strong></p>${ilist(i.done)}`:''}${i.planned.length?`<p><strong>Planificadas / pendientes</strong></p>${ilist(i.planned)}`:''}${i.recommended.length?`<p><strong>Recomendadas por el modelo (no registradas como realizadas)</strong></p>${ilist(i.recommended)}`:''}
   <h4>Plan de atención y seguimiento</h4><ul>${li([report.plan.periodicity,report.plan.nextReview&&`Próxima valoración prevista: ${report.plan.nextReview}`,report.plan.notes&&`Observaciones: ${report.plan.notes}`].filter(Boolean))}</ul>
   ${report.warnings.length?`<div class="warning"><strong>Advertencias</strong><ul>${li(report.warnings)}</ul></div>`:''}
-  <p class="help">${escapeHtml(report.tool)} · ${escapeHtml(report.disclaimer)}</p>`;
+  <p class="help">${escapeHtml(report.tool)} · ${escapeHtml(report.disclaimer)}</p><p class="help">Basado en la metodología CMO MAPEX-SEFH · <a href="${SOURCE_URL}" target="_blank" rel="noopener noreferrer">documento fuente SEFH (PDF)</a></p>`;
   $('#hceText').value=reportToText(report);
 }
 
@@ -207,6 +207,7 @@ async function copyText(text){
   return 'manual';
 }
 
+$('#appVersion').textContent=VERSION;
 const draft=loadDraft();
 if(draft){form=draft.form;currentStage=draft.stage;dirty=true}
 render();

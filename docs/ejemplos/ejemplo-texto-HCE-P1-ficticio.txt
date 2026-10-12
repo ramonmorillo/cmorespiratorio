@@ -1,5 +1,5 @@
 ATENCIÓN FARMACÉUTICA RESPIRATORIA — MODELO CMO
-Fecha de evaluación: 12/10/2026 16:55
+Fecha de evaluación: 12/10/2026 17:21
 Identificador del paciente (seudonimizado): RESP-P1-001
 Valoración: Definitiva
 
@@ -57,4 +57,5 @@ PLAN DE ATENCIÓN Y SEGUIMIENTO
 - Observaciones: Revisar técnica inhalatoria; derivación a deshabituación tabáquica acordada con Neumología.
 
 Profesional responsable: Farmacéutico/a de pruebas — Hospital Ficticio de Pruebas
-Generado con SIAF-CMO Respiratorio v1.1.0-rc1. Herramienta de apoyo profesional: no diagnóstica, no prescriptiva, no sustitutiva del juicio clínico, no producto sanitario certificado y pendiente de validación asistencial.
+Generado con SIAF-CMO Respiratorio v1.1.0 (octubre de 2026). Basado en la metodología CMO MAPEX-SEFH: Adaptación del Modelo de Atención Farmacéutica CMO al paciente con patologías respiratorias (SEFH). https://www.sefh.es/mapex/images/modelo-CMO-al-paciente-con-patologias-respiratorias.pdf
+Herramienta de apoyo profesional: no diagnóstica, no prescriptiva, no sustitutiva del juicio clínico, no producto sanitario certificado y pendiente de validación asistencial.

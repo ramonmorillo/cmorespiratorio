@@ -9,7 +9,7 @@
 </head>
 <body>
   <header class="app-header">
-    <div><span class="eyebrow">Modelo CMO</span><h1>CMO Respiratorio</h1><p>Evaluación farmacéutica estructurada y validada por el profesional.</p></div>
+    <div><span class="eyebrow">Metodología CMO · MAPEX-SEFH</span><h1>CMO Respiratorio</h1><p>Evaluación farmacéutica estructurada y validada por el profesional, basada en la metodología CMO (Capacidad–Motivación–Oportunidad) del proyecto MAPEX de la SEFH.</p></div>
     <div class="header-actions"><div class="privacy-pill">Análisis local · datos seudonimizados</div><button type="button" id="newCase" class="secondary">Nueva evaluación</button></div>
   </header>
 
@@ -86,6 +86,16 @@
     <div id="live" class="sr-only" aria-live="polite"></div>
     <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
   </main>
-  <footer>Creada por Ramón Morillo Verdugo en julio de 2026. Modelo procedente de la adaptación del Modelo CMO al paciente con patologías respiratorias.</footer>
+  <footer class="site-footer">
+    <p>Herramienta basada en la metodología <strong>CMO (Capacidad–Motivación–Oportunidad) MAPEX-SEFH</strong>. Modelo procedente de la publicación de la Sociedad Española de Farmacia Hospitalaria: <a href="https://www.sefh.es/mapex/images/modelo-CMO-al-paciente-con-patologias-respiratorias.pdf" target="_blank" rel="noopener noreferrer">Adaptación del Modelo de Atención Farmacéutica CMO al paciente con patologías respiratorias (PDF, SEFH)</a>.</p>
+    <p>Creada por Ramón Morillo Verdugo en julio de 2026. <strong>Versión <span id="appVersion">1.1.0</span>: nueva versión de octubre de 2026</strong> (auditoría pre-entrega, informe PDF y texto para historia clínica).</p>
+    <section class="legal-footer" aria-labelledby="legalTitle">
+      <h2 id="legalTitle">Aviso legal</h2>
+      <p><strong>Naturaleza.</strong> Herramienta de apoyo a la decisión para profesionales sanitarios. No es diagnóstica ni prescriptiva, no sustituye el juicio clínico y debe validarse por el centro antes de su implantación asistencial. <strong>No es un producto sanitario certificado</strong> conforme al Reglamento (UE) 2017/745 sobre los productos sanitarios. Su uso no exime al profesional de su responsabilidad clínica, deontológica y legal.</p>
+      <p><strong>Protección de datos.</strong> Funciona íntegramente en el navegador, sin servidor, sin cookies, sin analítica y sin envío de datos a terceros. Utilice únicamente identificadores seudonimizados. Los casos guardados permanecen solo en este navegador (almacenamiento local, sin cifrar) hasta que se borran. Diseño orientado al principio de minimización del Reglamento (UE) 2016/679 (RGPD) y de la Ley Orgánica 3/2018 (LOPDGDD); esta descripción técnica no sustituye la evaluación de protección de datos ni la autorización del centro.</p>
+      <p><strong>Historia clínica.</strong> El texto copiado y el PDF son borradores de apoyo: el profesional que los incorpora a la historia clínica es responsable de revisar su exactitud, conforme a la Ley 41/2002, básica reguladora de la autonomía del paciente y de derechos y obligaciones en materia de información y documentación clínica.</p>
+      <p><strong>Propiedad intelectual y responsabilidad.</strong> El modelo clínico (variables, puntuaciones y actuaciones) es obra de la SEFH y de los autores del documento original; esta herramienta es una implementación informática con cita expresa de la fuente y no implica aval de la SEFH. Se ofrece «tal cual», sin garantía de idoneidad para un uso clínico concreto. Consulte <a href="https://github.com/ramonmorillo/cmorespiratorio/blob/main/LEGAL_NOTICE.md" target="_blank" rel="noopener noreferrer">aviso legal completo</a> y <a href="https://github.com/ramonmorillo/cmorespiratorio/blob/main/PRIVACY.md" target="_blank" rel="noopener noreferrer">privacidad</a>.</p>
+    </section>
+  </footer>
   <script type="module" src="src/app.js"></script>
 </body></html>

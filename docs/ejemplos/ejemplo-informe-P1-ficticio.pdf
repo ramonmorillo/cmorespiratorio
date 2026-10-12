@@ -13,13 +13,13 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
 endobj
 5 0 obj
-<< /Length 7590 >>
+<< /Length 7622 >>
 stream
 0.030 0.420 0.440 rg 0.00 749.89 595.28 92.00 re f
 BT /F2 16 Tf 1.000 1.000 1.000 rg 50.00 793.89 Td (Atenci\363n farmac\351utica respiratoria \227 Modelo CMO) Tj ET
-BT /F1 9 Tf 1.000 1.000 1.000 rg 50.00 775.89 Td (Informe de atenci\363n farmac\351utica \267 SIAF-CMO Respiratorio v1.1.0-rc1) Tj ET
+BT /F1 9 Tf 1.000 1.000 1.000 rg 50.00 775.89 Td (Informe de atenci\363n farmac\351utica \267 SIAF-CMO Respiratorio v1.1.0 \(octubre de 2026\)) Tj ET
 BT /F2 9.5 Tf 0.360 0.410 0.500 rg 50.00 725.06 Td (Fecha de evaluaci\363n) Tj ET
-BT /F1 9.5 Tf 0.090 0.130 0.200 rg 200.00 725.06 Td (12/10/2026 16:55) Tj ET
+BT /F1 9.5 Tf 0.090 0.130 0.200 rg 200.00 725.06 Td (12/10/2026 17:21) Tj ET
 BT /F2 9.5 Tf 0.360 0.410 0.500 rg 50.00 712.24 Td (Identificador del paciente) Tj ET
 BT /F1 9.5 Tf 0.090 0.130 0.200 rg 200.00 712.24 Td (RESP-P1-001 \(seudonimizado\)) Tj ET
 BT /F2 9.5 Tf 0.360 0.410 0.500 rg 50.00 699.41 Td (Farmac\351utico/a responsable) Tj ET
@@ -92,7 +92,7 @@ BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 81.51 Td (Valoraci\363n multidimensional 
 BT /F1 9 Tf 0.090 0.130 0.200 rg 60.00 67.36 Td (\225) Tj ET
 BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 67.36 Td (Monitorizaci\363n y decisiones multidisciplinares en funci\363n de PROs y PREMs.) Tj ET
 0.850 0.890 0.930 RG 0.6 w 50 46.00 m 545.28 46.00 l S
-BT /F1 7.5 Tf 0.360 0.410 0.500 rg 50.00 32.00 Td (SIAF-CMO Respiratorio v1.1.0-rc1 \267 Documento de apoyo; no sustituye el juicio cl\355nico) Tj ET
+BT /F1 7.5 Tf 0.360 0.410 0.500 rg 50.00 32.00 Td (SIAF-CMO Respiratorio v1.1.0 \(octubre de 2026\) \267 Documento de apoyo; no sustituye el juicio cl\355nico) Tj ET
 BT /F1 7.5 Tf 0.360 0.410 0.500 rg 499.00 32.00 Td (P\341gina 1 de 2) Tj ET
 endstream
 endobj
@@ -100,9 +100,9 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
 endobj
 7 0 obj
-<< /Length 4729 >>
+<< /Length 5106 >>
 stream
-BT /F1 8 Tf 0.360 0.410 0.500 rg 50.00 807.89 Td (Atenci\363n farmac\351utica respiratoria \227 Modelo CMO \267 Paciente RESP-P1-001 \267 12/10/2026 16:55) Tj ET
+BT /F1 8 Tf 0.360 0.410 0.500 rg 50.00 807.89 Td (Atenci\363n farmac\351utica respiratoria \227 Modelo CMO \267 Paciente RESP-P1-001 \267 12/10/2026 17:21) Tj ET
 0.850 0.890 0.930 RG 0.6 w 50 801.89 m 545.28 801.89 l S
 BT /F1 9 Tf 0.090 0.130 0.200 rg 60.00 771.74 Td (\225) Tj ET
 BT /F1 9 Tf 0.090 0.130 0.200 rg 65.65 771.74 Td (Contacto adicional entre visitas mediante teleasistencia si el FH lo considera positivo.) Tj ET
@@ -145,8 +145,10 @@ BT /F1 9.5 Tf 0.090 0.130 0.200 rg 59.97 478.87 Td (Observaciones: Revisar t\351
 BT /F2 11.5 Tf 0.450 0.330 0.000 rg 62.00 439.97 Td (Aviso profesional) Tj ET
 BT /F1 8.5 Tf 0.450 0.330 0.000 rg 62.00 428.07 Td (Herramienta de apoyo profesional: no diagn\363stica, no prescriptiva, no sustitutiva del juicio cl\355nico, no producto sanitario) Tj ET
 BT /F1 8.5 Tf 0.450 0.330 0.000 rg 62.00 416.17 Td (certificado y pendiente de validaci\363n asistencial.) Tj ET
+BT /F1 8 Tf 0.360 0.410 0.500 rg 50.00 398.37 Td (Basado en la metodolog\355a CMO MAPEX-SEFH: Adaptaci\363n del Modelo de Atenci\363n Farmac\351utica CMO al paciente con patolog\355as) Tj ET
+BT /F1 8 Tf 0.360 0.410 0.500 rg 50.00 387.57 Td (respiratorias \(SEFH\). https://www.sefh.es/mapex/images/modelo-CMO-al-paciente-con-patologias-respiratorias.pdf) Tj ET
 0.850 0.890 0.930 RG 0.6 w 50 46.00 m 545.28 46.00 l S
-BT /F1 7.5 Tf 0.360 0.410 0.500 rg 50.00 32.00 Td (SIAF-CMO Respiratorio v1.1.0-rc1 \267 Documento de apoyo; no sustituye el juicio cl\355nico) Tj ET
+BT /F1 7.5 Tf 0.360 0.410 0.500 rg 50.00 32.00 Td (SIAF-CMO Respiratorio v1.1.0 \(octubre de 2026\) \267 Documento de apoyo; no sustituye el juicio cl\355nico) Tj ET
 BT /F1 7.5 Tf 0.360 0.410 0.500 rg 499.00 32.00 Td (P\341gina 2 de 2) Tj ET
 endstream
 endobj
@@ -164,12 +166,12 @@ xref
 0000000127 00000 n 
 0000000224 00000 n 
 0000000326 00000 n 
-0000007968 00000 n 
-0000008110 00000 n 
-0000012891 00000 n 
-0000013033 00000 n 
+0000008000 00000 n 
+0000008142 00000 n 
+0000013300 00000 n 
+0000013442 00000 n 
 trailer
 << /Size 10 /Root 1 0 R /Info 9 0 R >>
 startxref
-13156
+13565
 %%EOF
