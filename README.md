@@ -1,5 +1,7 @@
 # SIAF-CMO Respiratorio
 
+Versión 1.1.0 (octubre de 2026). Basada en la metodología CMO MAPEX-SEFH: [Adaptación del Modelo de Atención Farmacéutica CMO al paciente con patologías respiratorias (SEFH)](https://www.sefh.es/mapex/images/modelo-CMO-al-paciente-con-patologias-respiratorias.pdf).
+
 Aplicación web estática para apoyar la estratificación farmacéutica de pacientes con patologías respiratorias mediante el modelo CMO (Capacidad–Motivación–Oportunidad). Funciona sin backend, sin analítica, sin cookies de seguimiento y con almacenamiento local de datos estructurados confirmados.
 
 ## Uso

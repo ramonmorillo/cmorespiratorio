@@ -1,4 +1,4 @@
-import {VERSION, DIMENSIONS, PATHOLOGIES, PERIODICITY, INTERVENTION_STATUSES, actionCatalog} from './clinical.js';
+import {VERSION, VERSION_DATE, SOURCE_URL, DIMENSIONS, PATHOLOGIES, PERIODICITY, INTERVENTION_STATUSES, actionCatalog} from './clinical.js';
 
 // Estructura única del informe: el PDF, el texto para historia clínica y la vista previa se generan a partir de ella.
 
@@ -58,7 +58,7 @@ export function buildReport(form, result) {
     exportable: state.exportable,
     blockedReason: state.reason,
     title: 'Atención farmacéutica respiratoria — Modelo CMO',
-    tool: `${TOOL_NAME} v${VERSION}`,
+    tool: `${TOOL_NAME} v${VERSION} (${VERSION_DATE})`,
     evaluationDate: formatDate(form.completedAt, true),
     statusLabel: form.status === 'completed' && !result.pending ? 'Definitiva' : 'Provisional',
     pharmacist: form.pharmacist || '',
@@ -99,7 +99,8 @@ export function buildReport(form, result) {
       notes: form.plan?.notes || ''
     },
     warnings,
-    disclaimer: DISCLAIMER
+    disclaimer: DISCLAIMER,
+    source: `Basado en la metodología CMO MAPEX-SEFH: Adaptación del Modelo de Atención Farmacéutica CMO al paciente con patologías respiratorias (SEFH). ${SOURCE_URL}`
   };
 }
 
@@ -155,7 +156,8 @@ export function reportToText(r) {
   section('Advertencias', r.warnings.map(w => `- ${w}`));
 
   lines.push('', `Profesional responsable: ${[r.pharmacist, r.hospital].filter(Boolean).join(' — ')}`);
-  lines.push(`Generado con ${r.tool}. ${r.disclaimer}`);
+  lines.push(`Generado con ${r.tool}. ${r.source}`);
+  lines.push(r.disclaimer);
   return lines.map(toPlain).join('\n').replace(/\n{3,}/g, '\n\n');
 }
 

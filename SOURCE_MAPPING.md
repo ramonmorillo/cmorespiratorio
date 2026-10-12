@@ -1,6 +1,6 @@
 # Mapeo a fuente
 
-Fuente primaria: SEFH, *Adaptación del Modelo de Atención Farmacéutica CMO al Paciente con Patologías Respiratorias*.
+Fuente primaria: SEFH, *Adaptación del Modelo de Atención Farmacéutica CMO al Paciente con Patologías Respiratorias* (metodología CMO MAPEX-SEFH). Documento: https://www.sefh.es/mapex/images/modelo-CMO-al-paciente-con-patologias-respiratorias.pdf
 
 - Patologías y patología principal: p. 11, sección II.
 - Variables demográficas, excepciones, edad, IMC y máximo 5: p. 12, Figura 2.

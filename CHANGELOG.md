@@ -35,3 +35,11 @@
 - 18 pruebas unitarias nuevas (34 en total) y 9 pruebas E2E en Chromium (`npm run test:e2e`).
 - `build.js` comprueba ausencia de llamadas de red en todos los módulos.
 - Documentación: `INFORME_AUDITORIA_PREENTREGA.md`, `CHECKLIST_ENTREGA.md`, `GUIA_RAPIDA_FARMACEUTICO.md`, `CASOS_CLINICOS_PRUEBA.md`.
+
+## 1.1.0 — octubre de 2026 (nueva versión)
+
+- Publicación como versión 1.1.0 de los cambios de la auditoría pre-entrega (1.1.0-rc1).
+- La web indica que la herramienta se basa en la **metodología CMO MAPEX-SEFH** (cabecera y faldón).
+- Faldón con enlace al documento fuente SEFH: https://www.sefh.es/mapex/images/modelo-CMO-al-paciente-con-patologias-respiratorias.pdf
+- Nuevo faldón de **aviso legal** (Reglamento (UE) 2017/745, RGPD, LOPDGDD, Ley 41/2002, propiedad intelectual y limitación de responsabilidad) y aviso legal completo en `LEGAL_NOTICE.md`.
+- El PDF y el texto para historia clínica citan la versión, su fecha y la fuente MAPEX-SEFH.

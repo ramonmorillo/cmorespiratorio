@@ -17,3 +17,7 @@
 button:disabled{opacity:.45;cursor:not-allowed}
 @media(max-width:760px){.header-actions{align-items:flex-start}.intervention{grid-template-columns:1fr}}
 @media print{.header-actions,.report-panel,.manage-panel,.toast,footer,#reportBlocked{display:none!important}.report-preview{border:0}.result-banner{background:#eef!important}}
+/* Faldón: fuente MAPEX-SEFH, versión y aviso legal */
+.site-footer{text-align:left!important;max-width:1180px;font-size:.88rem;line-height:1.55}.site-footer p{margin:.4rem 0}.site-footer a{color:#076970;font-weight:700}
+.legal-footer{margin-top:1rem;padding:1rem 1.2rem;border-top:1px solid #d8e2f0;background:#fff;border-radius:14px;color:#3d4a60}.legal-footer h2{font-size:1rem;margin:0 0 .4rem;color:#172033}
+@media print{.site-footer{display:block!important;font-size:7.5pt}.site-footer a::after{content:" (" attr(href) ")";font-weight:400}}

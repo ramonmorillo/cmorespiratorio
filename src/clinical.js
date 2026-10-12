@@ -1,4 +1,6 @@
-export const VERSION='1.1.0-rc1';
+export const VERSION='1.1.0';
+export const VERSION_DATE='octubre de 2026';
+export const SOURCE_URL='https://www.sefh.es/mapex/images/modelo-CMO-al-paciente-con-patologias-respiratorias.pdf';
 export const DIMENSIONS={demographic:{label:'Variables demográficas',max:5},clinical:{label:'Variables clínicas',max:14},treatment:{label:'Variables relacionadas con el tratamiento',max:21},social:{label:'Variables sociosanitarias',max:16},utilization:{label:'Utilización de servicios sanitarios',max:3}};
 export const PATHOLOGIES=[['asthma','Asma grave'],['crsnp','Rinosinusitis crónica con poliposis nasal'],['copd','EPOC (incluye déficit alfa-1-antitripsina, bronquitis y enfisema)'],['cf','Fibrosis quística'],['bronchiectasis','Bronquiectasias no asociadas a fibrosis quística'],['ipf','Fibrosis pulmonar idiopática'],['ild','Otras EPID'],['ph','Hipertensión pulmonar']];
 const yn=(id,dim,label,points,help='')=>({id,dim,label,points,type:'yesno',help});

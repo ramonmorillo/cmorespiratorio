@@ -190,6 +190,7 @@ export function reportToPdf(r) {
   }
   L.y -= 6;
   L.box(['Aviso profesional', r.disclaimer], {fill: COLORS.warn, color: COLORS.warnInk, size: 8.5});
+  L.paragraph(r.source, {size: 8, color: COLORS.muted});
 
   // Pie de página con numeración
   const total = L.pages.length;
