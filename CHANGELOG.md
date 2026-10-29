@@ -9,6 +9,17 @@
 - Datos: identificación pseudonimizada y almacenamiento local únicamente de datos estructurados confirmados.
 - Aviso: apoyo profesional, no diagnóstico, no prescriptivo, no sustitutivo del juicio clínico, no producto sanitario certificado y pendiente de validación.
 
+## Sin publicar — Identidad CMO Design System 0.1.0 (rama `design/cmo-ds-0.1.0`)
+
+Cambio exclusivamente visual. Sin cambios en `src/clinical.js`, `src/extractor.js`, `src/workflow.js`, `src/report.js`, `src/pdf.js`, `src/storage.js` ni `src/app.js`.
+- Copia fijada del CMO Design System 0.1.0 en `src/cmo-ds/` (manifiesto SHA-256); sustituye a la antigua capa `src/cmo-visual.css`.
+- `src/styles.css`: colores de marca y neutros pasan a tokens; se retiran los `!important` que solo existían para anular la capa antigua. Colores semánticos sin cambios.
+- Accesibilidad: el contorno de foco pasa de #ffbf47 (1,6:1 sobre blanco) a #1f3aa8 (9,4:1) y el borde de los campos de #b9c6d3 (1,7:1) a #7b8495 (≥3:1, WCAG 1.4.11).
+- Pie: firma `<cmo-author-signature>` (desarrollo digital y modelo clínico SEFH) a partir de metadatos `cmo-app-meta`; favicon.
+- Build: copia recursiva de `src/` y control de llamadas de red ampliado a `src/cmo-ds/`.
+- Pruebas: `tests/cmo-ds.test.js` (versión de la firma = `VERSION`, integridad de la copia, atribución SEFH).
+- Versión: se mantiene 1.2.0 a la espera de decisión del autor (cambiarla afecta a `src/clinical.js`, a las exportaciones y al PDF).
+
 ## 1.1.0-rc1 — 12/10/2026 (auditoría pre-entrega; rama de auditoría, sin publicar)
 
 ### Correcciones críticas del motor clínico

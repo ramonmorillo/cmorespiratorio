@@ -5,11 +5,34 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <base href="/cmorespiratorio/">
   <title>SIAF-CMO Respiratorio</title>
+  <link rel="icon" href="src/cmo-ds/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#14203a">
   <link rel="stylesheet" href="src/styles.css">
+  <script type="application/json" id="cmo-app-meta">
+  {
+    "schema": "cmo-app-meta/1",
+    "id": "cmo-respiratorio",
+    "name": "SIAF-CMO Respiratorio",
+    "appVersion": "1.2.0",
+    "algorithm": null,
+    "status": "draft",
+    "releaseDate": null,
+    "clinicalReviewDate": null,
+    "credits": [
+      { "role": "Desarrollo digital", "name": "Dr. Ramón Morillo Verdugo" },
+      { "role": "Modelo clínico", "name": "Grupo de trabajo SEFH (Adaptación del Modelo de Atención Farmacéutica CMO al paciente con patologías respiratorias)" }
+    ],
+    "model": "Basado en el modelo CMO: Capacidad, Motivación y Oportunidad.",
+    "website": "https://ramonmorillo.es",
+    "copyright": null,
+    "designSystem": "0.1.0"
+  }
+  </script>
+  <script type="module" src="src/cmo-ds/cmo-author-signature.js"></script>
 </head>
-<body>
+<body class="cmo-scope">
   <header class="app-header">
-    <div><span class="eyebrow">Metodología CMO · MAPEX-SEFH</span><h1>CMO Respiratorio</h1><p>Evaluación farmacéutica estructurada y validada por el profesional, basada en la metodología CMO (Capacidad–Motivación–Oportunidad) del proyecto MAPEX de la SEFH.</p></div>
+    <div><div class="cmo-strata" aria-hidden="true"><i></i><i></i><i></i></div><span class="eyebrow">Metodología CMO · MAPEX-SEFH</span><h1>CMO Respiratorio</h1><p>Evaluación farmacéutica estructurada y validada por el profesional, basada en la metodología CMO (Capacidad–Motivación–Oportunidad) del proyecto MAPEX de la SEFH.</p></div>
     <div class="header-actions"><div class="privacy-pill">Análisis local · datos seudonimizados</div><button type="button" id="newCase" class="secondary">Nueva evaluación</button></div>
   </header>
 
@@ -88,7 +111,8 @@
   </main>
   <footer class="site-footer">
     <p>Herramienta basada en la metodología <strong>CMO (Capacidad–Motivación–Oportunidad) MAPEX-SEFH</strong>. Modelo procedente de la publicación de la Sociedad Española de Farmacia Hospitalaria: <a href="https://www.sefh.es/mapex/images/modelo-CMO-al-paciente-con-patologias-respiratorias.pdf" target="_blank" rel="noopener noreferrer">Adaptación del Modelo de Atención Farmacéutica CMO al paciente con patologías respiratorias (PDF, SEFH)</a>.</p>
-    <p>Creada por Ramón Morillo Verdugo en julio de 2026. <strong>Versión <span id="appVersion">1.2.0</span>: nueva versión de octubre de 2026</strong> (analizador de texto clínico v2.0 con tabla de revisión, informe PDF y texto para historia clínica).</p>
+    <p>Primera versión: julio de 2026. <strong>Versión <span id="appVersion">1.2.0</span>: nueva versión de octubre de 2026</strong> (analizador de texto clínico v2.0 con tabla de revisión, informe PDF y texto para historia clínica).</p>
+    <cmo-author-signature meta="cmo-app-meta"><p>Desarrollo digital: Dr. Ramón Morillo Verdugo · <a href="https://ramonmorillo.es">ramonmorillo.es</a></p></cmo-author-signature>
     <section class="legal-footer" aria-labelledby="legalTitle">
       <h2 id="legalTitle">Aviso legal</h2>
       <p><strong>Naturaleza.</strong> Herramienta de apoyo a la decisión para profesionales sanitarios. No es diagnóstica ni prescriptiva, no sustituye el juicio clínico y debe validarse por el centro antes de su implantación asistencial. <strong>No es un producto sanitario certificado</strong> conforme al Reglamento (UE) 2017/745 sobre los productos sanitarios. Su uso no exime al profesional de su responsabilidad clínica, deontológica y legal.</p>
