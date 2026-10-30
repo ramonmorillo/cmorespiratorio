@@ -9,7 +9,11 @@
 - Datos: identificación pseudonimizada y almacenamiento local únicamente de datos estructurados confirmados.
 - Aviso: apoyo profesional, no diagnóstico, no prescriptivo, no sustitutivo del juicio clínico, no producto sanitario certificado y pendiente de validación.
 
-## Sin publicar — Identidad CMO Design System 0.1.0 (rama `design/cmo-ds-0.1.0`)
+## 1.3.0 — 2026-10-30 — Identidad CMO Design System
+
+Publicación: `VERSION` 1.2.0 → 1.3.0 (decisión del autor: subir la versión menor por el cambio de interfaz). La versión aparece en el faldón, en las exportaciones y en el PDF. Sin cambios en el modelo de puntuación ni en el analizador de texto clínico (v2.0). CMO Design System actualizado a 0.2.0 (firma multilingüe, compatible). `cmo-app-meta`: `status: "released"`, `releaseDate: "2026-10-30"`.
+
+### Identidad CMO Design System (antes «sin publicar»)
 
 Cambio exclusivamente visual. Sin cambios en `src/clinical.js`, `src/extractor.js`, `src/workflow.js`, `src/report.js`, `src/pdf.js`, `src/storage.js` ni `src/app.js`.
 - Copia fijada del CMO Design System 0.1.0 en `src/cmo-ds/` (manifiesto SHA-256); sustituye a la antigua capa `src/cmo-visual.css`.
@@ -18,7 +22,6 @@ Cambio exclusivamente visual. Sin cambios en `src/clinical.js`, `src/extractor.j
 - Pie: firma `<cmo-author-signature>` (desarrollo digital y modelo clínico SEFH) a partir de metadatos `cmo-app-meta`; favicon.
 - Build: copia recursiva de `src/` y control de llamadas de red ampliado a `src/cmo-ds/`.
 - Pruebas: `tests/cmo-ds.test.js` (versión de la firma = `VERSION`, integridad de la copia, atribución SEFH).
-- Versión: se mantiene 1.2.0 a la espera de decisión del autor (cambiarla afecta a `src/clinical.js`, a las exportaciones y al PDF).
 
 ## 1.1.0-rc1 — 12/10/2026 (auditoría pre-entrega; rama de auditoría, sin publicar)
 
