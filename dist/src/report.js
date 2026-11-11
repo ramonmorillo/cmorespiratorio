@@ -105,62 +105,12 @@ export function buildReport(form, result) {
   };
 }
 
-// Caracteres que algunas historias clínicas electrónicas no muestran correctamente.
-export const toPlain = text => String(text ?? '')
-  .replace(/≥/g, '>=').replace(/≤/g, '<=').replace(/[‐‑]/g, '-')
-  .replace(/α/g, 'alfa').replace(/β/g, 'beta').replace(/[“”]/g, '"').replace(/[‘’]/g, "'")
-  .replace(/\t/g, ' ').trimEnd();
+// El texto para historia clínica y el PDF los genera el núcleo CMO (src/cmo-ds/) desde la estructura única de informe.
+import {toCoreReport} from './assessment.js';
+import {reportToText as coreText, toPlain} from './cmo-ds/cmo-report.js';
+export {toPlain};
 
 /** Texto plano para pegar en la historia clínica: sin HTML, tablas ni emojis; omite apartados sin contenido. */
-export function reportToText(r) {
-  const lines = [];
-  const section = (title, body) => { const rows = body.filter(Boolean); if (rows.length) lines.push('', title.toUpperCase(), ...rows); };
-  lines.push('ATENCIÓN FARMACÉUTICA RESPIRATORIA — MODELO CMO');
-  if (r.evaluationDate) lines.push(`Fecha de evaluación: ${r.evaluationDate}`);
-  if (r.patientId) lines.push(`Identificador del paciente (seudonimizado): ${r.patientId}`);
-  lines.push(`Valoración: ${r.statusLabel}`);
-
-  const c = r.clinical;
-  section('Situación clínica y farmacoterapéutica relevante', [
-    c.mainPathology && `- Patología respiratoria principal: ${c.mainPathology}.`,
-    c.otherPathologies.length && `- Otras patologías respiratorias: ${c.otherPathologies.join('; ')}.`,
-    c.age && `- Edad: ${c.age}.`,
-    c.bmi && `- IMC: ${c.bmi}.`,
-    ...r.contextFactors.map(f => `- ${f.label}${f.points ? ` (${f.points} p)` : ''}.`)
-  ]);
-
-  const s = r.stratification;
-  section('Valoración CMO (estratificación)', [
-    `- Puntuación total: ${s.total}/${s.max} (${s.subtotals.map(x => `${x.short} ${x.points}/${x.max}`).join('; ')}).`,
-    `- Prioridad calculada por el modelo: ${s.calculatedPriority}.`,
-    s.automaticCauses.length && `- Criterio de prioridad automática: ${s.automaticCauses.join('; ')}.`,
-    s.assistedCount && `- Origen de los datos: ${s.assistedCount} variable(s) incorporada(s) desde el análisis asistido del texto, confirmada(s) por el profesional.`,
-    s.override && `- Modificación por criterio profesional a ${s.override.priority}${s.override.motive ? `. Motivo: ${s.override.motive}` : ''}. Justificación: ${s.override.justification}`
-  ]);
-  lines.push('', `RESULTADO DE ESTRATIFICACIÓN: ${s.finalPriority.toUpperCase()}${r.statusLabel === 'Provisional' ? ' (PROVISIONAL)' : ''}`);
-
-  section('Necesidades farmacoterapéuticas identificadas', r.pharmacotherapeuticNeeds.map(f => `- ${f.label}: ${f.response} (${f.points} p).`));
-
-  const i = r.interventions;
-  const list = items => items.map(it => `  - ${it.group}: ${it.label}`);
-  section('Intervenciones farmacéuticas', [
-    i.done.length && 'Realizadas en esta consulta:', ...list(i.done),
-    i.planned.length && 'Planificadas / pendientes:', ...list(i.planned),
-    i.recommended.length && `Recomendadas por el modelo para ${s.finalPriority} (no registradas como realizadas):`, ...list(i.recommended)
-  ]);
-
-  section('Plan de atención y seguimiento', [
-    r.plan.periodicity && `- ${r.plan.periodicity}`,
-    r.plan.nextReview && `- Próxima valoración prevista: ${r.plan.nextReview}.`,
-    r.plan.notes && `- Observaciones: ${r.plan.notes}`
-  ]);
-
-  section('Advertencias', r.warnings.map(w => `- ${w}`));
-
-  lines.push('', `Profesional responsable: ${[r.pharmacist, r.hospital].filter(Boolean).join(' — ')}`);
-  lines.push(`Generado con ${r.tool}. ${r.source}`);
-  lines.push(r.disclaimer);
-  return lines.map(toPlain).join('\n').replace(/\n{3,}/g, '\n\n');
-}
+export const reportToText = r => coreText(toCoreReport(r, {version: VERSION}));
 
 export {INTERVENTION_STATUSES};

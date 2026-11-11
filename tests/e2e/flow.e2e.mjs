@@ -207,8 +207,8 @@ test('pediátrico y modificación manual sin justificación', {skip}, async () =
   await s2.page.click('#finish');
   await s2.page.click('[data-go="7"]');
   const text = await s2.page.inputValue('#hceText');
-  assert.match(text, /Prioridad calculada por el modelo: Prioridad 3/);
-  assert.match(text, /Modificación por criterio profesional a Prioridad 1/);
+  assert.match(text, /Resultado calculado por el modelo: Prioridad 3/);
+  assert.match(text, /Modificación por criterio profesional: Prioridad 1/);
   assert.match(text, /RESULTADO DE ESTRATIFICACIÓN: PRIORIDAD 1/);
   assert.deepEqual([...errors, ...s2.errors], []);
   await s2.context.close();
@@ -284,7 +284,7 @@ test('análisis asistido: no sobrescribe respuestas profesionales; descartar no 
   await page.click('#finishProvisional');
   await page.click('[data-go="7"]');
   assert.match(await page.inputValue('#hceText'), /incorporada\(s\) desde el análisis asistido/);
-  assert.match(await page.inputValue('#hceText'), /Tabaquismo activo \(4 p\)/, 'se conserva la respuesta profesional previa');
+  assert.match(await page.inputValue('#hceText'), /Tabaquismo activo — Sí \(4 p\)/, 'se conserva la respuesta profesional previa');
   assert.deepEqual(errors, []);
   await context.close();
 });
@@ -299,6 +299,7 @@ test('persistencia: recarga recupera el borrador; nueva evaluación reinicia; JS
   assert.equal(await page.inputValue('[data-var="activeSmoking"]'), 'yes');
   assert.ok(await page.isVisible('[data-stage="2"].active'));
   await page.click('#newCase');
+  await page.locator('dialog.cmo-modal button', {hasText: 'Descartar e iniciar'}).click();
   assert.equal(await page.inputValue('#pseudo'), '');
   assert.equal(await page.inputValue('[data-var="activeSmoking"]'), 'pending');
   assert.ok(await page.isVisible('[data-stage="1"].active'));

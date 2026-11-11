@@ -9,6 +9,14 @@
 - Datos: identificación pseudonimizada y almacenamiento local únicamente de datos estructurados confirmados.
 - Aviso: apoyo profesional, no diagnóstico, no prescriptivo, no sustitutivo del juicio clínico, no producto sanitario certificado y pendiente de validación.
 
+## Sin publicar — Convergencia con el núcleo CMO (Design System 0.3.0)
+
+Sin cambios en el modelo clínico ni en el extractor: `clinical.js` y `extractor.js` intactos (huella SHA-256 en `tests/fixtures/clinical-files.sha256.json`). Versión y fecha de publicación sin tocar.
+- Respiratorio es el patrón del que deriva el núcleo: su texto para historia clínica y su PDF pasan a generarse con `src/cmo-ds/cmo-report.js` y `cmo-pdf.js` mediante el adaptador `src/assessment.js` (sin lógica clínica). `report.js` conserva `buildReport` (vista previa y bloqueo de exportación); `pdf.js` queda como delegación con la misma API.
+- **Cambio de formato del texto/PDF (mismos datos):** «Profesional responsable» pasa a la cabecera; «Prioridad calculada por el modelo» → «Resultado calculado por el modelo»; las variables se listan como «Dimensión: variable — respuesta (n p)»; «Modificación por criterio profesional: Prioridad N». Pruebas actualizadas en consecuencia.
+- `window.confirm` sustituido por el diálogo accesible del núcleo (importar, nueva evaluación, abrir/borrar caso, borrar casos). Se mantiene el `confirm` nativo al sustituir una respuesta ya registrada desde el análisis asistido (flujo síncrono).
+- Pruebas: 3 unitarias nuevas (53 en total, paridad texto/PDF con el núcleo en todos los casos ficticios) y 10 e2e sin cambios de alcance.
+
 ## 1.3.0 — 2026-10-30 — Identidad CMO Design System
 
 Publicación: `VERSION` 1.2.0 → 1.3.0 (decisión del autor: subir la versión menor por el cambio de interfaz). La versión aparece en el faldón, en las exportaciones y en el PDF. Sin cambios en el modelo de puntuación ni en el analizador de texto clínico (v2.0). CMO Design System actualizado a 0.2.0 (firma multilingüe, compatible). `cmo-app-meta`: `status: "released"`, `releaseDate: "2026-10-30"`.
