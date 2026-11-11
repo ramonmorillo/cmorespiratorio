@@ -10,9 +10,12 @@ import {toCoreReport} from '../src/assessment.js';
 import {reportToHtml, reportToText as coreText, validateReport} from '../src/cmo-ds/cmo-report.js';
 import {CASES} from './fixtures/cases.js';
 
-test('huella SHA-256 de clinical.js y extractor.js (no modificados)', () => {
+test('huella SHA-256 de clinical.js y extractor.js (no modificados; las constantes VERSION y VERSION_DATE se normalizan)', () => {
   const fp = JSON.parse(fs.readFileSync(new URL('./fixtures/clinical-files.sha256.json', import.meta.url), 'utf8'));
-  for (const [f, h] of Object.entries(fp)) assert.equal(crypto.createHash('sha256').update(fs.readFileSync(new URL(`../${f}`, import.meta.url))).digest('hex'), h, f);
+  for (const [f, h] of Object.entries(fp)) {
+    const text = fs.readFileSync(new URL(`../${f}`, import.meta.url), 'utf8').replace(/export const VERSION='[^']*';/, 'export const VERSION=X;').replace(/export const VERSION_DATE='[^']*';/, 'export const VERSION_DATE=X;');
+    assert.equal(crypto.createHash('sha256').update(text).digest('hex'), h, f);
+  }
 });
 
 test('todos los casos ficticios exportables producen un informe cmo-report/1 válido y coherente', () => {

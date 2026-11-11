@@ -32,7 +32,7 @@ test('faldón: fuente MAPEX-SEFH, versión vigente y aviso legal',async()=>{
   assert.ok(html.includes(`href="${SOURCE_URL}"`),'enlace al documento SEFH');
   assert.equal(SOURCE_URL,'https://www.sefh.es/mapex/images/modelo-CMO-al-paciente-con-patologias-respiratorias.pdf');
   assert.ok(html.includes(`<span id="appVersion">${VERSION}</span>`),'versión del faldón = versión del código');
-  assert.match(html,/nueva versión de octubre de 2026/);
+  assert.match(html,/nueva versión de noviembre de 2026/);
   for(const norma of ['Reglamento (UE) 2017/745','Reglamento (UE) 2016/679','Ley Orgánica 3/2018','Ley 41/2002'])assert.ok(html.includes(norma),norma);
   assert.equal((html.match(/target="_blank" rel="noopener noreferrer"/g)||[]).length,(html.match(/target="_blank"/g)||[]).length,'enlaces externos con noopener');
 });

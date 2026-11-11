@@ -9,7 +9,7 @@
 - Datos: identificación pseudonimizada y almacenamiento local únicamente de datos estructurados confirmados.
 - Aviso: apoyo profesional, no diagnóstico, no prescriptivo, no sustitutivo del juicio clínico, no producto sanitario certificado y pendiente de validación.
 
-## Sin publicar — Convergencia con el núcleo CMO (Design System 0.3.0)
+## 1.4.0 — 2026-11-11 — Convergencia con el núcleo CMO (Design System 0.3.0)
 
 Sin cambios en el modelo clínico ni en el extractor: `clinical.js` y `extractor.js` intactos (huella SHA-256 en `tests/fixtures/clinical-files.sha256.json`). Versión y fecha de publicación sin tocar.
 - Respiratorio es el patrón del que deriva el núcleo: su texto para historia clínica y su PDF pasan a generarse con `src/cmo-ds/cmo-report.js` y `cmo-pdf.js` mediante el adaptador `src/assessment.js` (sin lógica clínica). `report.js` conserva `buildReport` (vista previa y bloqueo de exportación); `pdf.js` queda como delegación con la misma API.
