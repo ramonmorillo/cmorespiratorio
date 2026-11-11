@@ -4,6 +4,8 @@ import {allCases,saveCase,deleteCase,clearCases,saveDraft,loadDraft,clearDraft} 
 import {buildWorkflowState} from './workflow.js';
 import {buildReport,reportToText,PRIORITY_LABELS} from './report.js';
 import {reportToPdf} from './pdf.js';
+import {confirmDialog} from './cmo-ds/cmo-flow.js';
+const ask=(title,message,confirmLabel='Continuar')=>confirmDialog({title,message,confirmLabel,danger:true});
 
 const freshCase=()=>normalizeCase({values:{},pathologies:[],adultClinic:true});
 let form=freshCase();
@@ -218,10 +220,10 @@ $('#downloadPdf').onclick=()=>{const report=buildReport(form,window.currentResul
 $('#print').onclick=()=>print();
 $('#copyHce').onclick=async()=>{const text=$('#hceText').value;if(!text)return;const how=await copyText(text);const status=$('#copyStatus');
   status.textContent=how==='manual'?'No se ha podido copiar automáticamente: el texto está seleccionado; pulse Ctrl+C (Cmd+C en Mac).':'Informe copiado al portapapeles. Péguelo en la historia clínica y revíselo antes de guardar.';status.className=`copy-status ${how==='manual'?'is-warning':'is-ok'}`;toast(status.textContent,how==='manual')};
-$('#import').onchange=e=>{const file=e.target.files[0];e.target.value='';if(!file)return;if(dirty&&!confirm('La evaluación en curso tiene cambios sin guardar. ¿Reemplazarla por el caso importado?'))return;
+$('#import').onchange=async e=>{const file=e.target.files[0];e.target.value='';if(!file)return;if(dirty&&!await ask('Importar caso','La evaluación en curso tiene cambios sin guardar. ¿Reemplazarla por el caso importado?','Importar'))return;
   file.text().then(t=>{form=importCase(t);dirty=true;currentStage=7;render();toast('Caso importado. Las variables no reconocidas quedan como pendientes.')}).catch(()=>toast('JSON inválido o incompatible: no se ha importado nada.',true))};
-$('#clear').onclick=()=>{if(confirm('¿Borrar todos los casos guardados en este navegador? La evaluación en pantalla no se modifica.')){clearCases();if(form.id){delete form.id;dirty=true}renderSaved();toast('Casos locales borrados.')}};
-$('#newCase').onclick=()=>{if(dirty&&!confirm('Hay cambios sin guardar en la evaluación actual. ¿Iniciar una nueva evaluación y descartarlos?'))return;form=freshCase();dirty=false;clearDraft();resetAssistant();currentStage=1;render();toast('Nueva evaluación iniciada.');$('#hospital').focus()};
+$('#clear').onclick=async()=>{if(await ask('Borrar casos guardados','¿Borrar todos los casos guardados en este navegador? La evaluación en pantalla no se modifica.','Borrar')){clearCases();if(form.id){delete form.id;dirty=true}renderSaved();toast('Casos locales borrados.')}};
+$('#newCase').onclick=async()=>{if(dirty&&!await ask('Nueva evaluación','Hay cambios sin guardar en la evaluación actual. ¿Iniciar una nueva evaluación y descartarlos?','Descartar e iniciar'))return;form=freshCase();dirty=false;clearDraft();resetAssistant();currentStage=1;render();toast('Nueva evaluación iniciada.');$('#hospital').focus()};
 $('#finish').onclick=()=>finish(false);
 $('#finishProvisional').onclick=()=>finish(true);
 $('#backToForm').onclick=()=>{$('#pendingDialog').hidden=true;goToStage(2)};
@@ -245,8 +247,8 @@ function announce(msg){$('#live').textContent=msg}
 let toastTimer;
 function toast(msg,warn=false){const t=$('#toast');t.textContent=msg;t.className=`toast${warn?' is-warning':''}`;t.hidden=false;announce(msg);clearTimeout(toastTimer);toastTimer=setTimeout(()=>{t.hidden=true},5000)}
 function renderSaved(){const cases=allCases();$('#saved').innerHTML=cases.length?cases.map(c=>`<li><span>${escapeHtml(c.pseudoId||'Sin identificador')} · ${escapeHtml(c.status==='completed'?'definitivo':c.status==='provisional'?'provisional':'borrador')} · ${escapeHtml(new Date(c.updatedAt||Date.now()).toLocaleString('es-ES'))}</span> <button type="button" class="secondary" data-load="${escapeHtml(c.id)}">Abrir</button> <button type="button" class="secondary" data-del="${escapeHtml(c.id)}">Borrar</button></li>`).join(''):'<li class="help">No hay casos guardados en este navegador.</li>';
-  document.querySelectorAll('[data-load]').forEach(b=>b.onclick=()=>{if(dirty&&!confirm('Hay cambios sin guardar. ¿Abrir otro caso y descartarlos?'))return;const found=allCases().find(c=>c.id===b.dataset.load);if(!found)return;form=normalizeCase(found);dirty=false;resetAssistant();currentStage=form.completedAt?7:2;render();toast('Caso abierto.')});
-  document.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{if(!confirm('¿Borrar este caso del navegador?'))return;deleteCase(b.dataset.del);if(form.id===b.dataset.del){delete form.id;dirty=true}renderSaved()})}
+  document.querySelectorAll('[data-load]').forEach(b=>b.onclick=async()=>{if(dirty&&!await ask('Abrir caso','Hay cambios sin guardar. ¿Abrir otro caso y descartarlos?','Abrir'))return;const found=allCases().find(c=>c.id===b.dataset.load);if(!found)return;form=normalizeCase(found);dirty=false;resetAssistant();currentStage=form.completedAt?7:2;render();toast('Caso abierto.')});
+  document.querySelectorAll('[data-del]').forEach(b=>b.onclick=async()=>{if(!await ask('Borrar caso','¿Borrar este caso del navegador?','Borrar'))return;deleteCase(b.dataset.del);if(form.id===b.dataset.del){delete form.id;dirty=true}renderSaved()})}
 function today(){const d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
 function download(name,content,type){const url=URL.createObjectURL(new Blob([content],{type}));const a=el('a',{href:url,download:name});a.hidden=true;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),10000)}
 /** Copia con la API del portapapeles; si no está disponible (contexto no seguro, permisos), usa execCommand o deja el texto seleccionado. */

@@ -163,7 +163,7 @@ test('informes: texto para historia clínica limpio, sin HTML ni valores técnic
     assert.doesNotMatch(text, /[\u{1F300}-\u{1FAFF}]/u, `${id} emojis`);
     assert.match(text, /^ATENCIÓN FARMACÉUTICA RESPIRATORIA — MODELO CMO/);
     assert.match(text, new RegExp(`RESULTADO DE ESTRATIFICACIÓN: ${report.stratification.finalPriority.toUpperCase()}`));
-    assert.match(text, /Profesional responsable: Farmacéutico\/a de pruebas — Hospital Ficticio de Pruebas/);
+    assert.match(text, /Farmacéutico\/a responsable: Farmacéutico\/a de pruebas\nHospital o centro: Hospital Ficticio de Pruebas/);
     assert.doesNotMatch(text, /\n{3,}/);
   }
 });

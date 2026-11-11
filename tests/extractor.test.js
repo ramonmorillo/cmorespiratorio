@@ -130,7 +130,7 @@ test('integración: solo lo confirmado llega al caso, al PDF y al texto para his
   const form = finalizeCase(normalizeCase({values: {activeSmoking: 'yes'}, age: 72, pathologies: ['copd'], mainPathology: 'copd', hospital: 'H', pharmacist: 'F', provenance: {activeSmoking: {source: 'extractor', decision: 'confirmed', rule: 'Tabaquismo activo'}, severityOxygen: {decision: 'confirmed'}}}), 'provisional');
   assert.deepEqual(Object.keys(form.provenance), ['activeSmoking'], 'la trazabilidad solo se conserva para valores realmente registrados');
   const text = reportToText(buildReport(form, calculate(form)));
-  assert.match(text, /Tabaquismo activo \(4 p\)/);
+  assert.match(text, /Tabaquismo activo — Sí \(4 p\)/);
   assert.doesNotMatch(text, /oxigenoterapia \(2 p\)/i, 'la propuesta no confirmada no aparece');
   assert.match(text, /1 variable\(s\) incorporada\(s\) desde el análisis asistido/);
   assert.deepEqual(importCase(exportCase(form)).provenance, form.provenance, 'exportación/importación compatible');
